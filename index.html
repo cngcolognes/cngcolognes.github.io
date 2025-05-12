@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNG Colognes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>CNG Colognes</h1>
+    <p>Replicas and original fragrances at the best prices</p>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="Search for a fragrance...">
+  </div>
+
+  <div class="product-grid" id="productGrid">
+    <!-- Product List -->
+    <script>
+      const fragrances = [
+        ["Jean Paul Gaultier Elixir", "jpg-elixir.png", 250000, 500000],
+        ["Ultra Male", "ultra-male.png", 250000, 480000],
+        ["Le Beau Le Parfum", "le-beau.png", 250000, 500000],
+        ["Valentino Born In Roma", "valentino.png", 250000, 490000],
+        ["9PM by Afnan", "9pm.png", 200000, 270000],
+        ["Odyssey Mandarin Sky by Armaf", "odyssey.png", 200000, 250000],
+        ["Bleu de Chanel", "bleu.png", 250000, 600000],
+        ["Creed Aventus", "aventus.png", 250000, 1500000],
+        ["Creed Silver Mountain Water", "silver-mountain.png", 250000, 1300000],
+        ["Millésime Impérial", "imperial.png", 250000, 1300000],
+        ["Stronger With You", "stronger.png", 250000, 480000],
+        ["Acqua Di Gio", "gio.png", 250000, 500000],
+        ["LV Ombre Nomade", "ombre-nomade.png", 250000, 1700000],
+        ["Versace Eros Flame", "eros-flame.png", 250000, 430000],
+        ["Versace Eros", "eros.png", 250000, 430000],
+        ["Versace Eros Energy", "eros-energy.png", 250000, 450000],
+        ["Dior Sauvage", "sauvage.png", 250000, 600000],
+        ["JPG Le Male", "le-male.png", 250000, 450000],
+        ["JPG Le Male Le Parfum", "le-male-parfum.png", 250000, 480000],
+        ["JPG Scandal", "scandal.png", 250000, 490000],
+        ["Versace Pour Homme", "versace-pour-homme.png", 250000, 420000],
+        ["Club de Nuit Intense Man", "cdn-intense.png", 200000, 300000],
+        ["Allure Homme Sport", "allure-homme-sport.png", 250000, 490000],
+      ];
+
+      const grid = document.getElementById("productGrid");
+      fragrances.forEach(([name, image, replicaPrice, originalPrice]) => {
+        const div = document.createElement("div");
+        div.className = "product";
+        div.setAttribute("data-name", name);
+        div.innerHTML = `
+          <img src="images/${image}" alt="${name}">
+          <h3>${name}</h3>
+          <p class="price"><strong>Replica:</strong> ${replicaPrice.toLocaleString()} COP</p>
+          <p class="price"><strong>Original:</strong> ~${originalPrice.toLocaleString()} COP</p>
+        `;
+        grid.appendChild(div);
+      });
+    </script>
+  </div>
+
+  <footer>
+    <p>Contact us at <a href="mailto:cngcolognes@gmail.com">cngcolognes@gmail.com</a></p>
+    <p>If you have questions about what fragrances we have, please reach out!</p>
+  </footer>
+
+  <script>
+    const searchBar = document.getElementById('searchBar');
+
+    searchBar.addEventListener('keyup', function(e) {
+      const term = e.target.value.toLowerCase();
+      document.querySelectorAll('.product').forEach(product => {
+        const name = product.getAttribute('data-name').toLowerCase();
+        product.style.display = name.includes(term) ? 'block' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
