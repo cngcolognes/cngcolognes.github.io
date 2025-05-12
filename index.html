@@ -27,6 +27,12 @@
       margin-bottom: 30px;
     }
 
+    header img {
+      height: 80px;
+      margin-bottom: 10px;
+      animation: fadeIn 2s ease forwards;
+    }
+
     header h1 {
       font-size: 4rem;
       color: #6e3b0f;
@@ -98,6 +104,30 @@
       font-weight: bold;
     }
 
+    .whats-hot-section {
+      text-align: center;
+      margin-top: 80px;
+      margin-bottom: 50px;
+      font-family: 'Cinzel', serif;
+    }
+
+    .whats-hot-section h2 {
+      font-size: 2rem;
+      color: #6e3b0f;
+      margin-bottom: 20px;
+    }
+
+    .hot-image img {
+      width: 180px;
+      animation: float 3s ease-in-out infinite;
+      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
     footer {
       text-align: center;
       margin-top: 60px;
@@ -145,6 +175,7 @@
 </head>
 <body>
   <header>
+    <img src="images/mson.png" alt="MSON Logo">
     <h1>Maison du Cologne</h1>
     <p>Refined replicas and originals — luxury for less</p>
   </header>
@@ -154,6 +185,13 @@
   </div>
 
   <div class="product-grid" id="productGrid"></div>
+
+  <div class="whats-hot-section">
+    <h2>🔥 What’s Hot Right Now</h2>
+    <div class="hot-image">
+      <img src="images/hot-perfume.png" alt="Hot Perfume">
+    </div>
+  </div>
 
   <div class="extra-list">
     <h2>Other Fragrances We Offer</h2>
@@ -214,7 +252,7 @@
       ["JPG Le Male Le Parfum", "le-male-parfum.png", 250000, 480000],
       ["Club de Nuit Intense Man", "cdn-intense.png", 200000, 300000],
       ["Allure Homme Sport", "allure-homme-sport.png", 250000, 490000],
-      ["Scandal by JPG", "scandal.png", 240000, 460000],
+      ["Scandal by JPG", "sacndal.png", 200000, 460000],
       ["Versace Pour Homme", "versace-pour-homme.png", 220000, 430000]
     ];
 
@@ -241,3 +279,4 @@
   </script>
 </body>
 </html>
+
