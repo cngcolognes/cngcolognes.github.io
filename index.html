@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CNG Colognes</title>
+  <title>Maison du Cologne</title>
   <link rel="stylesheet" href="styles.css">
   <style>
     body {
-      background: linear-gradient(to right, #f0f2f5, #e0e7ff);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #333;
+      background: linear-gradient(to right, #f8f5f0, #f1e3d3);
+      font-family: 'Playfair Display', serif;
+      color: #2c2c2c;
       margin: 0;
       padding: 20px;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
     }
 
     header {
@@ -20,13 +28,15 @@
     }
 
     header h1 {
-      font-size: 3rem;
-      color: #1e3a8a;
+      font-size: 4rem;
+      color: #6e3b0f;
+      font-family: 'Cinzel', serif;
     }
 
     header p {
-      color: #4b5563;
-      font-size: 1.2rem;
+      color: #5c5c5c;
+      font-size: 1.4rem;
+      font-style: italic;
     }
 
     .search-container {
@@ -37,128 +47,189 @@
     #searchBar {
       width: 90%;
       max-width: 400px;
-      padding: 12px;
+      padding: 14px;
       font-size: 1rem;
-      border: 2px solid #93c5fd;
+      border: 2px solid #caa472;
       border-radius: 25px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    #searchBar:focus {
+      border-color: #6e3b0f;
+      outline: none;
     }
 
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
+      gap: 30px;
     }
 
     .product {
-      background: white;
-      border-radius: 16px;
+      background: #fff;
+      border-radius: 18px;
       padding: 15px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .product:hover {
-      transform: translateY(-5px);
+      transform: translateY(-8px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
     }
 
     .product img {
       max-width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: contain;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       border-radius: 12px;
     }
 
     .product h3 {
-      color: #111827;
+      color: #3a1e00;
+      font-family: 'Cormorant Garamond', serif;
     }
 
     .product .price {
-      color: #2563eb;
+      color: #9e6d3d;
       font-weight: bold;
     }
 
     footer {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 0.95rem;
-      color: #4b5563;
+      color: #4b4b4b;
+      border-top: 1px solid #dcdcdc;
+      padding-top: 20px;
+      font-family: 'Georgia', serif;
     }
 
     footer a {
-      color: #2563eb;
+      color: #6e3b0f;
       text-decoration: none;
+      font-weight: bold;
     }
 
-    footer .disclaimer {
-      color: crimson;
-      font-weight: bold;
-      margin-top: 10px;
+    .extra-list {
+      margin-top: 60px;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 30px;
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+      font-family: 'Georgia', serif;
+    }
+
+    .extra-list h2 {
+      color: #6e3b0f;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .extra-list ul {
+      padding-left: 20px;
+    }
+
+    .extra-list li {
+      margin-bottom: 10px;
+      line-height: 1.5;
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Cormorant+Garamond:wght@500&family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1>CNG Colognes</h1>
-    <p>Replicas and original fragrances at the best prices</p>
+    <h1>Maison du Cologne</h1>
+    <p>Refined replicas and originals — luxury for less</p>
   </header>
 
   <div class="search-container">
     <input type="text" id="searchBar" placeholder="Search for a fragrance...">
   </div>
 
-  <div class="product-grid" id="productGrid">
-    <script>
-      const fragrances = [
-        ["Jean Paul Gaultier Elixir", "jpg-elixir.png", 230000, 500000],
-        ["Ultra Male", "ultra-male.png", 220000, 480000],
-        ["Le Beau Le Parfum", "le-beau.png", 250000, 500000],
-        ["Valentino Born In Roma", "valentino.png", 220000, 490000],
-        ["9PM by Afnan", "9pm.png", 200000, 400000],
-        ["Odyssey Mandarin Sky by Armaf", "odyssey.png", 200000, 250000],
-        ["Bleu de Chanel", "bleu.png", 250000, 600000],
-        ["Creed Aventus", "aventus.png", 250000, 1500000],
-        ["Creed Silver Mountain Water", "silver-mountain.png", 250000, 1300000],
-        ["Millésime Impérial", "imperial.png", 250000, 1300000],
-        ["Stronger With You", "stronger.png", 230000, 480000],
-        ["Acqua Di Gio", "gio.png", 220000, 500000],
-        ["LV Ombre Nomade", "ombre-nomade.png", 250000, 1700000],
-        ["Versace Eros Flame", "eros-flame.png", 220000, 430000],
-        ["Versace Eros", "eros.png", 220000, 430000],
-        ["Versace Eros Energy", "eros-energy.png", 250000, 450000],
-        ["Dior Sauvage", "sauvage.png", 220000, 600000],
-        ["JPG Le Male", "le-male.png", 210000, 450000],
-        ["JPG Le Male Le Parfum", "le-male-parfum.png", 250000, 480000],
-        ["Club de Nuit Intense Man", "cdn-intense.png", 200000, 300000],
-        ["Allure Homme Sport", "allure-homme-sport.png", 250000, 490000],
-      ];
+  <div class="product-grid" id="productGrid"></div>
 
-      const grid = document.getElementById("productGrid");
-      fragrances.forEach(([name, image, replicaPrice, originalPrice]) => {
-        const div = document.createElement("div");
-        div.className = "product";
-        div.setAttribute("data-name", name);
-        div.innerHTML = `
-          <img src="images/${image}" alt="${name}">
-          <h3>${name}</h3>
-          <p class="price"><strong>Replica:</strong> ${replicaPrice.toLocaleString()} COP</p>
-          <p class="price"><strong>Original:</strong> ~${originalPrice.toLocaleString()} COP</p>
-        `;
-        grid.appendChild(div);
-      });
-    </script>
+  <div class="extra-list">
+    <h2>Other Fragrances We Offer</h2>
+    <ul>
+      <li><strong>Scandal by Jean Paul Gaultier:</strong> Sweet caramel and tonka bean with bold projection.</li>
+      <li><strong>Versace Pour Homme:</strong> Fresh citrus and aquatic notes, a great everyday fragrance.</li>
+      <li><strong>YSL La Nuit de l’Homme:</strong> Cardamom and lavender blend into a seductive evening scent.</li>
+      <li><strong>Burberry Hero:</strong> Spicy and woody with juniper and black pepper.</li>
+      <li><strong>Tom Ford Noir Extreme:</strong> Amber and vanilla create a rich, daring signature.</li>
+      <li><strong>Armani Code Absolu:</strong> Tonka bean and suede give it a warm, sweet base.</li>
+      <li><strong>Montblanc Explorer:</strong> A fresh take on Aventus-style masculinity.</li>
+      <li><strong>Hugo Boss Bottled:</strong> Apple, cinnamon, and woods for everyday confidence.</li>
+      <li><strong>Nishane Hacivat:</strong> Elegant pineapple chypre with strong projection.</li>
+      <li><strong>D&G The One:</strong> Tobacco, amber, and spicy ginger, a classic warm scent.</li>
+      <li><strong>Issey Miyake L’eau d’Issey:</strong> Crisp aquatic freshness for daytime elegance.</li>
+      <li><strong>Abercrombie Fierce:</strong> Citrus and musk with energetic youthfulness.</li>
+      <li><strong>Encre Noire:</strong> Deep vetiver and dark woods for a mysterious profile.</li>
+      <li><strong>Lattafa Khamrah:</strong> Apple pie in a bottle—sweet, spicy, and bold.</li>
+      <li><strong>Baccarat Rouge:</strong> Rich saffron, amber, and airiness.</li>
+      <li><strong>Amouage Reflection Man:</strong> Classy white florals with a woody backbone.</li>
+      <li><strong>Initio Side Effect:</strong> Rum, tobacco, and vanilla for an intoxicating aroma.</li>
+      <li><strong>Mercedes-Benz Club Black:</strong> Sweet benzoin and vanilla that gets compliments.</li>
+      <li><strong>Armaf Club de Nuit Sillage:</strong> Bright and fresh like Silver Mountain Water.</li>
+      <li><strong>Armani Stronger With You Intensely:</strong> Warm, spicy, and comforting.</li>
+      <li><strong>YSL Y EDP:</strong> Crisp apple, sage, and woods for a clean masculine vibe.</li>
+      <li><strong>Tom Ford Tobacco Vanille:</strong> Sweet, leathery and unique gentlemanly scent.</li>
+    </ul>
   </div>
 
   <footer>
     <p>Contact us at <a href="mailto:cngcolognes@gmail.com">cngcolognes@gmail.com</a></p>
-    <p>If you have questions about what fragrances we have, please reach out!</p>
-    <p class="disclaimer">We are not affiliated with CNG School in any way, and we do not sell fragrances at school.</p>
+    <p>Reach out for scent suggestions or availability!</p>
   </footer>
 
   <script>
     const searchBar = document.getElementById('searchBar');
+    const productGrid = document.getElementById('productGrid');
+
+    const fragrances = [
+      ["Jean Paul Gaultier Elixir", "jpg-elixir.png", 230000, 500000],
+      ["Ultra Male", "ultra-male.png", 220000, 480000],
+      ["Le Beau Le Parfum", "le-beau.png", 250000, 500000],
+      ["Valentino Born In Roma", "valentino.png", 220000, 490000],
+      ["9PM by Afnan", "9pm.png", 200000, 400000],
+      ["Odyssey Mandarin Sky by Armaf", "odyssey.png", 200000, 250000],
+      ["Bleu de Chanel", "bleu.png", 250000, 600000],
+      ["Creed Aventus", "aventus.png", 250000, 1500000],
+      ["Creed Silver Mountain Water", "silver-mountain.png", 250000, 1300000],
+      ["Millésime Impérial", "imperial.png", 250000, 1300000],
+      ["Stronger With You", "stronger.png", 230000, 480000],
+      ["Acqua Di Gio", "gio.png", 220000, 500000],
+      ["LV Ombre Nomade", "ombre-nomade.png", 250000, 1700000],
+      ["Versace Eros Flame", "eros-flame.png", 220000, 430000],
+      ["Versace Eros", "eros.png", 220000, 430000],
+      ["Versace Eros Energy", "eros-energy.png", 250000, 450000],
+      ["Dior Sauvage", "sauvage.png", 220000, 600000],
+      ["JPG Le Male", "le-male.png", 210000, 450000],
+      ["JPG Le Male Le Parfum", "le-male-parfum.png", 250000, 480000],
+      ["Club de Nuit Intense Man", "cdn-intense.png", 200000, 300000],
+      ["Allure Homme Sport", "allure-homme-sport.png", 250000, 490000],
+      ["Scandal by JPG", "scandal.png", 240000, 460000],
+      ["Versace Pour Homme", "versace-pour-homme.png", 220000, 430000]
+    ];
+
+    fragrances.forEach(([name, image, replicaPrice, originalPrice]) => {
+      const div = document.createElement("div");
+      div.className = "product";
+      div.setAttribute("data-name", name);
+      div.innerHTML = `
+        <img src="images/${image}" alt="${name}">
+        <h3>${name}</h3>
+        <p class="price"><strong>Replica:</strong> ${replicaPrice.toLocaleString()} COP</p>
+        <p class="price"><strong>Original:</strong> ~${originalPrice.toLocaleString()} COP</p>
+      `;
+      productGrid.appendChild(div);
+    });
 
     searchBar.addEventListener('keyup', function(e) {
       const term = e.target.value.toLowerCase();
@@ -170,4 +241,3 @@
   </script>
 </body>
 </html>
-
