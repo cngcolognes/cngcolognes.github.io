@@ -5,6 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CNG Colognes</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: linear-gradient(to right, #f0f2f5, #e0e7ff);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #1e3a8a;
+    }
+
+    header p {
+      color: #4b5563;
+      font-size: 1.2rem;
+    }
+
+    .search-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #searchBar {
+      width: 90%;
+      max-width: 400px;
+      padding: 12px;
+      font-size: 1rem;
+      border: 2px solid #93c5fd;
+      border-radius: 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+    }
+
+    .product {
+      background: white;
+      border-radius: 16px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .product:hover {
+      transform: translateY(-5px);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      border-radius: 12px;
+    }
+
+    .product h3 {
+      color: #111827;
+    }
+
+    .product .price {
+      color: #2563eb;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.95rem;
+      color: #4b5563;
+    }
+
+    footer a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -17,7 +104,6 @@
   </div>
 
   <div class="product-grid" id="productGrid">
-    <!-- Product List -->
     <script>
       const fragrances = [
         ["Jean Paul Gaultier Elixir", "jpg-elixir.png", 250000, 500000],
@@ -39,8 +125,6 @@
         ["Dior Sauvage", "sauvage.png", 250000, 600000],
         ["JPG Le Male", "le-male.png", 250000, 450000],
         ["JPG Le Male Le Parfum", "le-male-parfum.png", 250000, 480000],
-        ["JPG Scandal", "scandal.png", 250000, 490000],
-        ["Versace Pour Homme", "versace-pour-homme.png", 250000, 420000],
         ["Club de Nuit Intense Man", "cdn-intense.png", 200000, 300000],
         ["Allure Homme Sport", "allure-homme-sport.png", 250000, 490000],
       ];
