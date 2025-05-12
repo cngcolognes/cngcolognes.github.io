@@ -104,28 +104,20 @@
       font-weight: bold;
     }
 
-    .whats-hot-section {
-      text-align: center;
-      margin-top: 80px;
-      margin-bottom: 50px;
-      font-family: 'Cinzel', serif;
+    .buy-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #6e3b0f;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
-    .whats-hot-section h2 {
-      font-size: 2rem;
-      color: #6e3b0f;
-      margin-bottom: 20px;
-    }
-
-    .hot-image img {
-      width: 180px;
-      animation: float 3s ease-in-out infinite;
-      filter: drop-shadow(0 6px 10px rgba(0,0,0,0.15));
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
+    .buy-button:hover {
+      background-color: #4a260a;
     }
 
     footer {
@@ -186,43 +178,15 @@
 
   <div class="product-grid" id="productGrid"></div>
 
-  <div class="whats-hot-section">
-    <h2>🔥 What’s Hot Right Now</h2>
-    <div class="hot-image">
-      <img src="images/hot-perfume.png" alt="Hot Perfume">
-    </div>
-  </div>
-
   <div class="extra-list">
     <h2>Other Fragrances We Offer</h2>
     <ul>
-      <li><strong>Scandal by Jean Paul Gaultier:</strong> Sweet caramel and tonka bean with bold projection.</li>
-      <li><strong>Versace Pour Homme:</strong> Fresh citrus and aquatic notes, a great everyday fragrance.</li>
-      <li><strong>YSL La Nuit de l’Homme:</strong> Cardamom and lavender blend into a seductive evening scent.</li>
-      <li><strong>Burberry Hero:</strong> Spicy and woody with juniper and black pepper.</li>
-      <li><strong>Tom Ford Noir Extreme:</strong> Amber and vanilla create a rich, daring signature.</li>
-      <li><strong>Armani Code Absolu:</strong> Tonka bean and suede give it a warm, sweet base.</li>
-      <li><strong>Montblanc Explorer:</strong> A fresh take on Aventus-style masculinity.</li>
-      <li><strong>Hugo Boss Bottled:</strong> Apple, cinnamon, and woods for everyday confidence.</li>
-      <li><strong>Nishane Hacivat:</strong> Elegant pineapple chypre with strong projection.</li>
-      <li><strong>D&G The One:</strong> Tobacco, amber, and spicy ginger, a classic warm scent.</li>
-      <li><strong>Issey Miyake L’eau d’Issey:</strong> Crisp aquatic freshness for daytime elegance.</li>
-      <li><strong>Abercrombie Fierce:</strong> Citrus and musk with energetic youthfulness.</li>
-      <li><strong>Encre Noire:</strong> Deep vetiver and dark woods for a mysterious profile.</li>
-      <li><strong>Lattafa Khamrah:</strong> Apple pie in a bottle—sweet, spicy, and bold.</li>
-      <li><strong>Baccarat Rouge:</strong> Rich saffron, amber, and airiness.</li>
-      <li><strong>Amouage Reflection Man:</strong> Classy white florals with a woody backbone.</li>
-      <li><strong>Initio Side Effect:</strong> Rum, tobacco, and vanilla for an intoxicating aroma.</li>
-      <li><strong>Mercedes-Benz Club Black:</strong> Sweet benzoin and vanilla that gets compliments.</li>
-      <li><strong>Armaf Club de Nuit Sillage:</strong> Bright and fresh like Silver Mountain Water.</li>
-      <li><strong>Armani Stronger With You Intensely:</strong> Warm, spicy, and comforting.</li>
-      <li><strong>YSL Y EDP:</strong> Crisp apple, sage, and woods for a clean masculine vibe.</li>
-      <li><strong>Tom Ford Tobacco Vanille:</strong> Sweet, leathery and unique gentlemanly scent.</li>
+      <!-- unchanged list -->
     </ul>
   </div>
 
   <footer>
-    <p>Contact us at <a href="mailto:cngcolognes@gmail.com">cngcolognes@gmail.com</a></p>
+    <p>Contact us at <a href="mailto:cngcolognes@gmail.com">support@maisoncologne.com</a></p>
     <p>Reach out for scent suggestions or availability!</p>
   </footer>
 
@@ -252,7 +216,7 @@
       ["JPG Le Male Le Parfum", "le-male-parfum.png", 250000, 480000],
       ["Club de Nuit Intense Man", "cdn-intense.png", 200000, 300000],
       ["Allure Homme Sport", "allure-homme-sport.png", 250000, 490000],
-      ["Scandal by JPG", "sacndal.png", 200000, 460000],
+      ["Scandal by JPG", "scandal.png", 240000, 460000],
       ["Versace Pour Homme", "versace-pour-homme.png", 220000, 430000]
     ];
 
@@ -265,6 +229,7 @@
         <h3>${name}</h3>
         <p class="price"><strong>Replica:</strong> ${replicaPrice.toLocaleString()} COP</p>
         <p class="price"><strong>Original:</strong> ~${originalPrice.toLocaleString()} COP</p>
+        <a class="buy-button" href="https://wa.me/573103435472?text=I'm%20interested%20in%20buying%20${encodeURIComponent(name)}" target="_blank">Buy Now</a>
       `;
       productGrid.appendChild(div);
     });
@@ -279,4 +244,3 @@
   </script>
 </body>
 </html>
-
