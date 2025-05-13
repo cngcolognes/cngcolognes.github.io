@@ -361,6 +361,60 @@
       top: 3px;
     }
 
+    /* Easter Egg Styles */
+    .easter-egg {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    .easter-egg-card {
+      max-width: 500px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    }
+
+    .easter-egg-title {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .easter-egg-image {
+      width: 100%;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    .easter-egg-code {
+      background: var(--gold);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+
+    .easter-egg-button {
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .easter-egg-button:hover {
+      background: var(--dark);
+    }
+
     footer {
       background: linear-gradient(to right, var(--dark), #1e1811);
       color: var(--light);
@@ -667,12 +721,38 @@
       `).join('');
     }
 
+    function showEasterEgg() {
+      productGrid.innerHTML = `
+        <div class="easter-egg">
+          <div class="easter-egg-card">
+            <h3 class="easter-egg-title">🎉 SECRET DISCOVERED! 🎉</h3>
+            <img src="https://i.imgur.com/3JQ3qyG.jpg" alt="Celebrity with discount" class="easter-egg-image">
+            <p style="font-size: 1.1rem; margin: 1.5rem 0;">Congratulations! You found our secret discount code!</p>
+            <div class="easter-egg-code">
+              Use code: <span style="font-family: monospace;">TUNG20BRR</span> for 20% off!
+            </div>
+            <p style="margin-top: 1.5rem; font-style: italic;">(Valid for 24 hours after discovery)</p>
+            <button class="easter-egg-button" onclick="location.reload()">
+              Back to Shopping
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
     // Initial render
     renderProducts(fragrances);
 
     // Search functionality
     searchBar.addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
+      
+      // Easter egg check
+      if (term === "skibidi tung vaca patapim") {
+        showEasterEgg();
+        return;
+      }
+      
       const filtered = term === '' 
         ? fragrances 
         : fragrances.filter(([name]) => name.toLowerCase().includes(term));
