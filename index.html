@@ -6,13 +6,18 @@
   <title>Maison du Cologne | Luxury Fragrances</title>
   <style>
     :root {
-      --primary: #5c3a21;
-      --secondary: #a78a7f;
-      --accent: #c8a97e;
-      --light: #f8f5f2;
-      --dark: #2a2118;
-      --text: #3a332d;
+      --primary: #3a2c1e;
+      --secondary: #8b735b;
+      --accent: #b89f80;
+      --light: #f9f7f4;
+      --dark: #1e1811;
+      --text: #4a4239;
       --gold: #c5a267;
+      --cream: #f5f0e8;
+      --taupe: #d8cfc2;
+      --bronze: #a78a7f;
+      --shadow: 0 15px 35px rgba(0,0,0,0.08);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     }
     
     body {
@@ -21,9 +26,11 @@
       color: var(--text);
       margin: 0;
       padding: 0;
-      line-height: 1.6;
+      line-height: 1.7;
       opacity: 0;
       animation: fadeIn 1.5s ease forwards;
+      background-image: radial-gradient(var(--taupe) 1px, transparent 1px);
+      background-size: 20px 20px;
     }
 
     @keyframes fadeIn {
@@ -32,27 +39,34 @@
 
     header {
       text-align: center;
-      padding: 5rem 2rem 4rem;
-      background: linear-gradient(rgba(248, 245, 242, 0.9), rgba(248, 245, 242, 0.9)), url('https://images.unsplash.com/photo-1615634262417-5bd8eb23fc9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      padding: 6rem 2rem 5rem;
+      background: linear-gradient(rgba(249, 247, 244, 0.92), rgba(249, 247, 244, 0.92)), 
+                  url('https://images.unsplash.com/photo-1615634262417-5bd8eb23fc9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
       position: relative;
       margin-bottom: 3rem;
-      border-bottom: 1px solid rgba(200, 169, 126, 0.3);
+      border-bottom: 1px solid rgba(184, 159, 128, 0.3);
     }
 
     .logo-container {
-      width: 140px;
-      height: 140px;
-      margin: 0 auto 2rem;
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 2.5rem;
       border-radius: 50%;
-      background: white;
+      background: var(--cream);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: var(--shadow);
+      border: 2px solid rgba(255,255,255,0.5);
       animation: fadeIn 1.5s ease forwards;
       position: relative;
       overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .logo-container:hover {
+      transform: scale(1.05);
+      box-shadow: 0 20px 45px rgba(0,0,0,0.15);
     }
 
     .logo-container:before {
@@ -60,7 +74,7 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      border: 1px solid var(--gold);
+      border: 2px solid var(--gold);
       border-radius: 50%;
       box-sizing: border-box;
       animation: rotate 20s linear infinite;
@@ -72,108 +86,120 @@
     }
 
     .logo-container img {
-      width: 65%;
+      width: 60%;
       height: auto;
       z-index: 1;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
     }
 
     h1 {
       font-family: 'Marcellus SC', serif;
-      font-size: 3.5rem;
+      font-size: 3.8rem;
       color: var(--primary);
-      margin: 1rem 0 0.5rem;
-      letter-spacing: 2px;
+      margin: 1.5rem 0 0.8rem;
+      letter-spacing: 3px;
       font-weight: 400;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+      position: relative;
+      display: inline-block;
+    }
+
+    h1:after {
+      content: '';
+      position: absolute;
+      width: 60%;
+      height: 2px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      bottom: -10px;
+      left: 20%;
     }
 
     .subtitle {
       font-style: italic;
       color: var(--secondary);
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       margin-bottom: 0;
       position: relative;
       display: inline-block;
-      letter-spacing: 0.5px;
-    }
-
-    .subtitle:after {
-      content: '';
-      position: absolute;
-      width: 50%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--accent), transparent);
-      bottom: -10px;
-      left: 25%;
+      letter-spacing: 1px;
+      font-weight: 300;
     }
 
     .search-container {
-      max-width: 600px;
-      margin: 0 auto 5rem;
+      max-width: 650px;
+      margin: 0 auto 6rem;
       padding: 0 2rem;
       position: relative;
     }
 
     #searchBar {
       width: 100%;
-      padding: 1.1rem 2rem;
-      font-size: 1.1rem;
-      border: 1px solid rgba(92, 58, 33, 0.2);
-      border-radius: 30px;
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-      transition: all 0.4s ease;
+      padding: 1.2rem 2.5rem;
+      font-size: 1.2rem;
+      border: 1px solid rgba(58, 44, 30, 0.15);
+      border-radius: 35px;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
       font-family: 'Cormorant Garamond', serif;
       color: var(--text);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238b735b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 1.5rem center;
+      background-size: 1.2rem;
+      padding-left: 4rem;
     }
 
     #searchBar:focus {
       outline: none;
       border-color: var(--gold);
-      box-shadow: 0 8px 35px rgba(200, 169, 126, 0.25);
+      box-shadow: 0 15px 40px rgba(184, 159, 128, 0.3);
+      transform: translateY(-2px);
     }
 
     #searchBar::placeholder {
       color: var(--secondary);
       opacity: 0.7;
       letter-spacing: 0.5px;
+      font-style: italic;
     }
 
     .container {
-      max-width: 1300px;
+      max-width: 1400px;
       margin: 0 auto;
       padding: 0 2rem;
     }
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 3rem;
-      margin-bottom: 6rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 3.5rem;
+      margin-bottom: 8rem;
     }
 
     .product {
       background: white;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
       position: relative;
+      border: 1px solid rgba(184, 159, 128, 0.1);
     }
 
     .product:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      transform: translateY(-10px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.15);
     }
 
     .product-image {
-      height: 300px;
-      background: #f9f6f2;
+      height: 350px;
+      background: var(--cream);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 2.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -184,7 +210,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 40%;
+      height: 45%;
       background: linear-gradient(to top, rgba(255,255,255,0.95), transparent);
     }
 
@@ -192,31 +218,34 @@
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
-      transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+      transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
     }
 
     .product:hover .product-image img {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
 
     .product-info {
-      padding: 1.8rem;
+      padding: 2.2rem;
       text-align: center;
+      background: white;
     }
 
     .product-title {
       font-family: 'Marcellus', serif;
       color: var(--primary);
-      font-size: 1.4rem;
-      margin: 0 0 1rem;
+      font-size: 1.5rem;
+      margin: 0 0 1.2rem;
       letter-spacing: 0.5px;
+      font-weight: 500;
     }
 
     .price-container {
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      margin-bottom: 1.5rem;
+      gap: 2.5rem;
+      margin-bottom: 2rem;
     }
 
     .price-box {
@@ -229,10 +258,10 @@
       content: '';
       position: absolute;
       top: 50%;
-      right: -1rem;
+      right: -1.25rem;
       height: 60%;
       width: 1px;
-      background: rgba(167, 138, 127, 0.3);
+      background: rgba(139, 115, 91, 0.2);
       transform: translateY(-50%);
     }
 
@@ -241,115 +270,113 @@
     }
 
     .price-label {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: var(--secondary);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.2px;
+      font-weight: 500;
     }
 
     .price-value {
       font-weight: 600;
       color: var(--text);
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     .replica-price {
       color: var(--primary);
+      font-weight: 700;
     }
 
     .original-price {
       text-decoration: line-through;
       opacity: 0.7;
+      font-weight: 500;
     }
 
     .buy-button {
       display: inline-block;
-      padding: 0.8rem 2.2rem;
-      background: var(--primary);
+      padding: 1rem 2.5rem;
+      background: linear-gradient(to right, var(--primary), var(--dark));
       color: white;
       text-decoration: none;
-      border-radius: 30px;
+      border-radius: 35px;
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
-      font-size: 1.05rem;
-      letter-spacing: 0.8px;
-      transition: all 0.3s ease;
-      border: 1px solid var(--primary);
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: var(--transition);
+      border: none;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 5px 15px rgba(58, 44, 30, 0.2);
     }
 
-    .buy-button:after {
+    .buy-button:before {
       content: '';
       position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 5px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.5);
-      opacity: 0;
-      border-radius: 100%;
-      transform: scale(1, 1) translate(-50%);
-      transform-origin: 50% 50%;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
     }
 
     .buy-button:hover {
-      background: transparent;
-      color: var(--primary);
+      background: linear-gradient(to right, var(--dark), var(--primary));
+      box-shadow: 0 8px 25px rgba(58, 44, 30, 0.3);
+      transform: translateY(-3px);
     }
 
-    .buy-button:hover:after {
-      animation: ripple 1s ease-out;
-    }
-
-    @keyframes ripple {
-      0% {
-        transform: scale(0, 0);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(20, 20);
-        opacity: 0;
-      }
+    .buy-button:hover:before {
+      left: 100%;
     }
 
     .section-title {
       text-align: center;
       font-family: 'Marcellus SC', serif;
       color: var(--primary);
-      font-size: 2.2rem;
-      margin: 6rem 0 4rem;
+      font-size: 2.5rem;
+      margin: 8rem 0 5rem;
       position: relative;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      font-weight: 400;
     }
 
     .section-title:after {
       content: '';
       position: absolute;
-      width: 100px;
-      height: 2px;
+      width: 120px;
+      height: 3px;
       background: linear-gradient(to right, transparent, var(--gold), transparent);
-      bottom: -15px;
+      bottom: -18px;
       left: 50%;
       transform: translateX(-50%);
     }
 
     .fragrance-list {
       columns: 3;
-      column-gap: 4rem;
-      margin: 0 auto 7rem;
-      max-width: 1100px;
+      column-gap: 5rem;
+      margin: 0 auto 8rem;
+      max-width: 1200px;
       padding: 0 2rem;
     }
 
     .fragrance-list li {
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
       break-inside: avoid;
       position: relative;
-      padding-left: 2rem;
+      padding-left: 2.5rem;
       list-style-type: none;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .fragrance-list li:hover {
+      color: var(--primary);
+      transform: translateX(5px);
     }
 
     .fragrance-list li:before {
@@ -357,68 +384,141 @@
       color: var(--gold);
       position: absolute;
       left: 0;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       top: 3px;
+      transition: var(--transition);
+    }
+
+    .fragrance-list li:hover:before {
+      transform: rotate(15deg);
     }
 
     /* Easter Egg Styles */
     .easter-egg {
       grid-column: 1/-1;
       text-align: center;
-      padding: 3rem;
+      padding: 4rem;
     }
 
     .easter-egg-card {
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto;
       background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+      padding: 3rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(184, 159, 128, 0.2);
+      background-image: linear-gradient(to bottom right, var(--cream), white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .easter-egg-card:before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(200,169,126,0.1) 0%, rgba(255,255,255,0) 70%);
+      z-index: 0;
     }
 
     .easter-egg-title {
       color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
 
     .easter-egg-image {
       width: 100%;
-      border-radius: 8px;
-      margin: 1rem 0;
+      border-radius: 12px;
+      margin: 2rem 0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      border: 1px solid rgba(184, 159, 128, 0.2);
+      position: relative;
+      z-index: 1;
     }
 
     .easter-egg-code {
-      background: var(--gold);
+      background: linear-gradient(to right, var(--primary), var(--dark));
       color: white;
-      padding: 1rem;
-      border-radius: 8px;
+      padding: 1.2rem;
+      border-radius: 12px;
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      box-shadow: 0 5px 15px rgba(58, 44, 30, 0.2);
+      position: relative;
+      z-index: 1;
+      margin: 1.5rem 0;
     }
 
     .easter-egg-button {
-      margin-top: 1.5rem;
-      padding: 0.8rem 1.5rem;
-      background: var(--primary);
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(to right, var(--primary), var(--dark));
       color: white;
       border: none;
-      border-radius: 30px;
+      border-radius: 35px;
       cursor: pointer;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
+      font-size: 1.2rem;
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 5px 15px rgba(58, 44, 30, 0.2);
+      letter-spacing: 1px;
     }
 
     .easter-egg-button:hover {
-      background: var(--dark);
+      background: linear-gradient(to right, var(--dark), var(--primary));
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(58, 44, 30, 0.3);
+    }
+
+    /* Decorative Elements */
+    .decorative-corner {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      opacity: 0.1;
+    }
+
+    .corner-tl {
+      top: 0;
+      left: 0;
+      border-top: 2px solid var(--gold);
+      border-left: 2px solid var(--gold);
+    }
+
+    .corner-tr {
+      top: 0;
+      right: 0;
+      border-top: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
+    }
+
+    .corner-bl {
+      bottom: 0;
+      left: 0;
+      border-bottom: 2px solid var(--gold);
+      border-left: 2px solid var(--gold);
+    }
+
+    .corner-br {
+      bottom: 0;
+      right: 0;
+      border-bottom: 2px solid var(--gold);
+      border-right: 2px solid var(--gold);
     }
 
     footer {
-      background: linear-gradient(to right, var(--dark), #1e1811);
+      background: linear-gradient(to right, var(--dark), #1a130c);
       color: var(--light);
-      padding: 5rem 2rem;
+      padding: 6rem 2rem;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -435,164 +535,201 @@
     }
 
     .footer-content {
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
 
     .footer-logo {
-      width: 90px;
-      margin-bottom: 2rem;
+      width: 100px;
+      margin-bottom: 2.5rem;
       opacity: 0.9;
       filter: brightness(0) invert(1);
+      transition: var(--transition);
+    }
+
+    .footer-logo:hover {
+      transform: rotate(15deg);
     }
 
     .footer-title {
       font-family: 'Marcellus SC', serif;
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
+      font-size: 2.2rem;
+      margin-bottom: 1.8rem;
       color: var(--gold);
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
 
     .footer-text {
-      font-size: 1.05rem;
-      line-height: 1.8;
+      font-size: 1.1rem;
+      line-height: 1.9;
       opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .footer-contact {
-      margin: 2rem 0;
+      margin: 3rem 0;
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 3rem;
       flex-wrap: wrap;
     }
 
     .footer-contact a {
       color: var(--gold);
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: var(--transition);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
-      font-size: 1.05rem;
+      gap: 0.8rem;
+      font-size: 1.1rem;
+      position: relative;
+      padding-bottom: 5px;
     }
 
     .footer-contact a:hover {
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
     }
 
-    .footer-contact a:before {
-      content: '→';
-      font-size: 0.9rem;
-      opacity: 0;
-      transition: all 0.3s ease;
+    .footer-contact a:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      bottom: 0;
+      left: 0;
+      transition: var(--transition);
     }
 
-    .footer-contact a:hover:before {
-      opacity: 1;
+    .footer-contact a:hover:after {
+      width: 100%;
     }
 
     .copyright {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       opacity: 0.6;
-      margin-top: 3rem;
-      letter-spacing: 0.5px;
+      margin-top: 4rem;
+      letter-spacing: 0.8px;
     }
 
-    @media (max-width: 1024px) {
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
       .product-grid {
-        gap: 2rem;
+        gap: 3rem;
       }
       
       .fragrance-list {
         columns: 2;
-        column-gap: 3rem;
+        column-gap: 4rem;
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       h1 {
-        font-size: 2.8rem;
+        font-size: 3.2rem;
       }
       
       .subtitle {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
       
       .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       }
       
       .product-image {
-        height: 260px;
+        height: 320px;
       }
       
       .price-container {
-        flex-direction: column;
-        gap: 1rem;
+        gap: 2rem;
       }
       
-      .price-box:after {
-        display: none;
+      .section-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.6rem;
+      }
+      
+      .logo-container {
+        width: 130px;
+        height: 130px;
+      }
+      
+      .search-container {
+        margin-bottom: 4rem;
+      }
+      
+      #searchBar {
+        padding: 1rem 2rem 1rem 3.5rem;
+        background-position: 1.2rem center;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      
+      .fragrance-list {
+        columns: 1;
+        padding: 0 1.5rem;
       }
       
       .section-title {
         font-size: 2rem;
       }
+      
+      .footer-contact {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 400px) {
       h1 {
         font-size: 2.2rem;
       }
       
-      .logo-container {
-        width: 110px;
-        height: 110px;
+      .subtitle {
+        font-size: 1.1rem;
       }
       
-      .search-container {
-        margin-bottom: 3rem;
+      .product-info {
+        padding: 1.8rem;
       }
       
-      #searchBar {
-        padding: 0.9rem 1.5rem;
-      }
-      
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-      }
-      
-      .fragrance-list {
-        columns: 1;
-        padding: 0 1rem;
-      }
-      
-      .section-title {
-        font-size: 1.8rem;
-      }
-      
-      .footer-contact {
+      .price-container {
         flex-direction: column;
-        gap: 1rem;
+        gap: 1.2rem;
+      }
+      
+      .price-box:after {
+        display: none;
       }
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Marcellus&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Marcellus&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/mson.png" type="image/png">
 </head>
 <body>
   <header>
+    <div class="decorative-corner corner-tl"></div>
+    <div class="decorative-corner corner-tr"></div>
     <div class="logo-container">
       <img src="images/mson.png" alt="Maison du Cologne Logo">
     </div>
     <h1>Maison du Cologne</h1>
-    <p class="subtitle">Authentic Luxury & Exquisite Replicas</p>
+    <p class="subtitle">Where Luxury Meets Distinction</p>
+    <div class="decorative-corner corner-bl"></div>
+    <div class="decorative-corner corner-br"></div>
   </header>
 
   <div class="search-container">
@@ -641,16 +778,26 @@
     <div class="footer-content">
       <img src="images/mson.png" alt="Maison du Cologne Logo" class="footer-logo">
       <h3 class="footer-title">Maison du Cologne</h3>
-      <p class="footer-text">Curated selection of luxury fragrances and premium replicas for the discerning individual</p>
+      <p class="footer-text">Curated selection of the world's finest fragrances and premium replicas for the discerning individual who appreciates the art of scent.</p>
       
       <div class="footer-contact">
         <a href="mailto:contact@maisoncologne.com">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
           contact@maisoncologne.com
         </a>
         <a href="tel:+573103435472">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
           +57 310 3435472
         </a>
         <a href="https://wa.me/573103435472" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
           WhatsApp Enquiries
         </a>
       </div>
@@ -703,11 +850,11 @@
             <h3 class="product-title">${name}</h3>
             <div class="price-container">
               <div class="price-box">
-                <div class="price-label">Replica</div>
+                <div class="price-label">Our Price</div>
                 <div class="price-value replica-price">${formatPrice(replicaPrice)}</div>
               </div>
               <div class="price-box">
-                <div class="price-label">Original</div>
+                <div class="price-label">Retail</div>
                 <div class="price-value original-price">${formatPrice(originalPrice)}</div>
               </div>
             </div>
@@ -727,11 +874,11 @@
           <div class="easter-egg-card">
             <h3 class="easter-egg-title">🎉 SECRET DISCOVERED! 🎉</h3>
             <img src="https://gta5modaz.com/wp-content/uploads/2025/04/gta5modaz_La_Vaca_Saturno_Saturnita_Itanlian_Brainrot_thumb.jpg" alt="Celebrity with discount" class="easter-egg-image">
-            <p style="font-size: 1.1rem; margin: 1.5rem 0;">Congratulations! You found our secret discount code!</p>
+            <p style="font-size: 1.1rem; margin: 1.5rem 0; position: relative; z-index: 1;">Congratulations! You found our secret discount code!</p>
             <div class="easter-egg-code">
               Use code: <span style="font-family: monospace;">TUNG20BRR</span> for 20% off!
             </div>
-            <p style="margin-top: 1.5rem; font-style: italic;">(Valid for 24 hours after discovery)</p>
+            <p style="margin-top: 1.5rem; font-style: italic; position: relative; z-index: 1;">(Valid for 24 hours after discovery)</p>
             <button class="easter-egg-button" onclick="location.reload()">
               Back to Shopping
             </button>
