@@ -54,7 +54,7 @@
       to { opacity: 1; }
     }
 
-    /* Floating Bottles Animation */
+    /* Floating Bottles Animation - Updated to stay on sides */
     .floating-bottle {
       position: fixed;
       width: 70px;
@@ -65,7 +65,6 @@
       opacity: 0.8;
       filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
       transition: all 0.5s ease;
-      margin: 0 3rem;
     }
 
     .floating-bottle:hover {
@@ -91,31 +90,36 @@
       }
     }
 
-    /* Specific bottle animations */
+    /* Specific bottle animations - now on sides only */
     .bottle1 {
-      left: 10%;
+      left: 2%;
       animation-delay: 0s;
       animation-duration: 18s;
     }
     .bottle2 {
-      left: 25%;
+      left: 2%;
       animation-delay: 3s;
       animation-duration: 20s;
     }
     .bottle3 {
-      left: 40%;
+      left: 2%;
       animation-delay: 6s;
       animation-duration: 22s;
     }
     .bottle4 {
-      left: 60%;
+      right: 2%;
       animation-delay: 9s;
       animation-duration: 19s;
     }
     .bottle5 {
-      left: 80%;
+      right: 2%;
       animation-delay: 12s;
       animation-duration: 21s;
+    }
+    .bottle6 {
+      right: 2%;
+      animation-delay: 15s;
+      animation-duration: 23s;
     }
 
     header {
@@ -278,8 +282,8 @@
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 6rem;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 4rem;
       margin-bottom: 12rem;
     }
 
@@ -309,12 +313,12 @@
     }
 
     .product-image {
-      height: 420px;
+      height: 320px;
       background: linear-gradient(to bottom right, var(--cream), white);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 3.5rem;
+      padding: 2.5rem;
       position: relative;
       overflow: hidden;
     }
@@ -339,11 +343,11 @@
     }
 
     .product:hover .product-image img {
-      transform: scale(1.12);
+      transform: scale(1.12) rotate(2deg);
     }
 
     .product-info {
-      padding: 3.5rem;
+      padding: 2.5rem;
       text-align: center;
       background: white;
       position: relative;
@@ -364,8 +368,8 @@
     .product-title {
       font-family: 'Marcellus', serif;
       color: var(--primary);
-      font-size: 1.8rem;
-      margin: 0 0 2rem;
+      font-size: 1.6rem;
+      margin: 0 0 1.5rem;
       letter-spacing: 1px;
       font-weight: 500;
       position: relative;
@@ -386,8 +390,8 @@
     .price-container {
       display: flex;
       justify-content: center;
-      gap: 3.5rem;
-      margin-bottom: 3.5rem;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .price-box {
@@ -400,7 +404,7 @@
       content: '';
       position: absolute;
       top: 50%;
-      right: -1.75rem;
+      right: -1.5rem;
       height: 80%;
       width: 1px;
       background: rgba(139, 115, 91, 0.15);
@@ -412,7 +416,7 @@
     }
 
     .price-label {
-      font-size: 1rem;
+      font-size: 0.9rem;
       color: var(--secondary);
       margin-bottom: 0.8rem;
       text-transform: uppercase;
@@ -436,7 +440,7 @@
     .price-value {
       font-weight: 600;
       color: var(--text);
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       letter-spacing: 0.5px;
     }
 
@@ -464,14 +468,14 @@
 
     .buy-button {
       display: inline-block;
-      padding: 1.2rem 3.5rem;
+      padding: 1rem 3rem;
       background: linear-gradient(135deg, var(--primary), var(--dark));
       color: white;
       text-decoration: none;
       border-radius: 50px;
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       letter-spacing: 1.5px;
       transition: var(--transition);
       border: none;
@@ -661,6 +665,78 @@
       letter-spacing: 3px;
     }
 
+    /* Ballerina Easter Egg */
+    .ballerina-egg {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 6rem;
+    }
+
+    .ballerina-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 5rem;
+      border-radius: 25px;
+      box-shadow: var(--shadow), var(--glow);
+      border: 1px solid rgba(184, 159, 128, 0.25);
+      background-image: linear-gradient(to bottom right, var(--cream), white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ballerina-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 184, 117, 0.15) 0%, rgba(255,255,255,0) 70%);
+      z-index: 0;
+    }
+
+    .ballerina-title {
+      color: var(--primary);
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    }
+
+    .ballerina-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      margin: 3rem auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      border: 1px solid rgba(184, 159, 128, 0.35);
+      position: relative;
+      z-index: 1;
+      transition: var(--transition);
+    }
+
+    .ballerina-image:hover {
+      transform: scale(1.03);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    }
+
+    .ballerina-code {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      box-shadow: 0 10px 30px rgba(58, 44, 30, 0.35);
+      position: relative;
+      z-index: 1;
+      margin: 2.5rem 0;
+      font-family: 'Marcellus SC', serif;
+    }
+
     /* Decorative Elements */
     .decorative-corner {
       position: absolute;
@@ -839,7 +915,7 @@
       }
       
       .product-grid {
-        gap: 5rem;
+        gap: 3rem;
       }
       
       .fragrance-list {
@@ -858,15 +934,15 @@
       }
       
       .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       }
       
       .product-image {
-        height: 380px;
+        height: 280px;
       }
       
       .price-container {
-        gap: 3rem;
+        gap: 2.5rem;
       }
       
       .section-title {
@@ -904,7 +980,7 @@
       
       .product-grid {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 3rem;
       }
       
       .fragrance-list {
@@ -925,11 +1001,6 @@
       .floating-bottle {
         width: 50px;
       }
-      .bottle1 { left: 5%; }
-      .bottle2 { left: 20%; }
-      .bottle3 { left: 35%; }
-      .bottle4 { left: 65%; }
-      .bottle5 { left: 85%; }
     }
 
     @media (max-width: 600px) {
@@ -942,12 +1013,12 @@
       }
       
       .product-info {
-        padding: 3rem;
+        padding: 2rem;
       }
       
       .price-container {
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
       }
       
       .price-box::after {
@@ -964,6 +1035,16 @@
       
       .floating-bottle {
         width: 40px;
+      }
+      
+      .easter-egg-card,
+      .ballerina-card {
+        padding: 3rem;
+      }
+      
+      .easter-egg-title,
+      .ballerina-title {
+        font-size: 2.2rem;
       }
     }
 
@@ -992,17 +1073,23 @@
       .search-container {
         padding: 0 1.5rem;
       }
+      
+      .easter-egg-card,
+      .ballerina-card {
+        padding: 2rem;
+      }
     }
   </style>
   <link rel="icon" href="images/mson.png" type="image/png">
 </head>
 <body>
-  <!-- Floating Fragrance Bottles -->
+  <!-- Floating Fragrance Bottles - Updated to stay on sides -->
   <img src="images/lv-bottle1.png" class="floating-bottle bottle1" alt="Louis Vuitton fragrance bottle">
   <img src="images/xerjoff-bottle1.png" class="floating-bottle bottle2" alt="Xerjoff fragrance bottle">
   <img src="images/marly-bottle1.png" class="floating-bottle bottle3" alt="Parfums de Marly fragrance bottle">
   <img src="images/lv-bottle2.png" class="floating-bottle bottle4" alt="Louis Vuitton fragrance bottle">
   <img src="images/xerjoff-bottle2.png" class="floating-bottle bottle5" alt="Xerjoff fragrance bottle">
+  <img src="images/marly-bottle2.png" class="floating-bottle bottle6" alt="Parfums de Marly fragrance bottle">
 
   <header class="parallax" data-parallax="0.2">
     <div class="decorative-corner corner-tl"></div>
@@ -1171,6 +1258,25 @@
       `;
     }
 
+    function showBallerinaEgg() {
+      productGrid.innerHTML = `
+        <div class="ballerina-egg">
+          <div class="ballerina-card">
+            <h3 class="ballerina-title">✨ BALLERINA SPECIAL ✨</h3>
+            <img src="images/tung.png" alt="Tung X Ballerina" class="ballerina-image">
+            <p style="font-size: 1.3rem; margin: 2.5rem 0; position: relative; z-index: 1;">You've unlocked our exclusive Ballerina discount!</p>
+            <div class="ballerina-code">
+              Use code: <span style="font-family: monospace;">BALLERINA5</span> for 5% off!
+            </div>
+            <p style="margin-top: 2.5rem; font-style: italic; position: relative; z-index: 1;">(Limited time offer for Ballerina fans)</p>
+            <button class="easter-egg-button" onclick="location.reload()">
+              Continue Shopping
+            </button>
+          </div>
+        </div>
+      `;
+    }
+
     // Create floating particles
     function createParticles() {
       const particles = 40;
@@ -1266,9 +1372,14 @@
     searchBar.addEventListener('input', (e) => {
       const term = e.target.value.toLowerCase().trim();
       
-      // Easter egg check
+      // Easter egg checks
       if (term === "skibidi tung vaca patapim") {
         showEasterEgg();
+        return;
+      }
+      
+      if (term === "tung x ballerina") {
+        showBallerinaEgg();
         return;
       }
       
