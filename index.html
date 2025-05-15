@@ -1254,154 +1254,1480 @@
               Back to Shopping
             </button>
           </div>
-        </div>
-      `;
+        </div><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maison du Cologne | Luxury Fragrances</title>
+  <style>
+    :root {
+      --primary: #1e1811;
+      --secondary: #6d5c4b;
+      --accent: #c8a97e;
+      --light: #f9f7f3;
+      --dark: #16100a;
+      --text: #3a332d;
+      --gold: #d4b875;
+      --platinum: #e5e5e5;
+      --cream: #f8f5f0;
+      --taupe: #d8cfc2;
+      --bronze: #a78a7f;
+      --shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      --transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+      --glow: 0 0 25px rgba(212, 184, 117, 0.25);
+      --border-radius: 20px;
+      --section-spacing: 12rem;
+      --element-spacing: 3rem;
+    }
+    
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      src: url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
+    }
+    
+    @font-face {
+      font-family: 'Marcellus SC';
+      src: url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+    }
+    
+    body {
+      background: var(--light);
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards;
+      background-image: 
+        radial-gradient(circle at 15% 25%, rgba(212, 184, 117, 0.05) 0%, transparent 25%),
+        radial-gradient(circle at 85% 75%, rgba(212, 184, 117, 0.05) 0%, transparent 25%);
+      overflow-x: hidden;
     }
 
-    function showBallerinaEgg() {
-      productGrid.innerHTML = `
-        <div class="ballerina-egg">
-          <div class="ballerina-card">
-            <h3 class="ballerina-title">✨ BALLERINA SPECIAL ✨</h3>
-            <img src="images/tung.png" alt="Tung X Ballerina" class="ballerina-image">
-            <p style="font-size: 1.3rem; margin: 2.5rem 0; position: relative; z-index: 1;">You've unlocked our exclusive Ballerina discount!</p>
-            <div class="ballerina-code">
-              Use code: <span style="font-family: monospace;">BALLERINA5</span> for 5% off!
-            </div>
-            <p style="margin-top: 2.5rem; font-style: italic; position: relative; z-index: 1;">(Limited time offer for Ballerina fans)</p>
-            <button class="easter-egg-button" onclick="location.reload()">
-              Continue Shopping
-            </button>
-          </div>
-        </div>
-      `;
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
 
-    // Create floating particles
-    function createParticles() {
-      const particles = 40;
-      for (let i = 0; i < particles; i++) {
-        const particle = document.createElement('div');
-        particle.classList.add('particle');
-        
-        // Random properties
-        const size = Math.random() * 8 + 2;
-        const posX = Math.random() * window.innerWidth;
-        const posY = Math.random() * window.innerHeight;
-        const delay = Math.random() * 8;
-        const duration = Math.random() * 15 + 15;
-        const opacity = Math.random() * 0.4 + 0.1;
-        
-        // Apply properties
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        particle.style.left = `${posX}px`;
-        particle.style.top = `${posY}px`;
-        particle.style.animationDelay = `${delay}s`;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.opacity = opacity;
-        
-        // Add animation
-        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
-        
-        document.body.appendChild(particle);
+    /* Improved Floating Bottles Animation */
+    .floating-bottle {
+      position: fixed;
+      width: 70px;
+      height: auto;
+      z-index: 10;
+      pointer-events: none;
+      opacity: 0.8;
+      filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+      transition: all 0.5s ease;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    .floating-bottle:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 20px rgba(212, 184, 117, 0.7));
+      animation-play-state: paused;
+    }
+
+    /* Specific bottle animations with staggered timing */
+    .bottle1 {
+      left: 5%;
+      animation: floatBottle 25s linear infinite;
+    }
+    .bottle2 {
+      left: 8%;
+      animation: floatBottle 28s linear infinite 3s;
+    }
+    .bottle3 {
+      left: 12%;
+      animation: floatBottle 30s linear infinite 6s;
+    }
+    .bottle4 {
+      right: 5%;
+      animation: floatBottle 26s linear infinite 9s;
+    }
+    .bottle5 {
+      right: 8%;
+      animation: floatBottle 29s linear infinite 12s;
+    }
+    .bottle6 {
+      right: 12%;
+      animation: floatBottle 32s linear infinite 15s;
+    }
+
+    @keyframes floatBottle {
+      0% {
+        transform: translateY(120vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 0.8;
+      }
+      90% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
       }
     }
 
-    // Create dynamic floating bottles
-    function createFloatingBottles() {
-      const bottleTypes = [
-        'lv-bottle1.png',
-        'xerjoff-bottle1.png',
-        'marly-bottle1.png',
-        'lv-bottle2.png',
-        'xerjoff-bottle2.png'
-      ];
+    header {
+      text-align: center;
+      padding: 10rem 2rem 8rem;
+      background: linear-gradient(rgba(249, 247, 243, 0.96), rgba(249, 247, 243, 0.96)), 
+                  url('https://images.unsplash.com/photo-1615634262417-5bd8eb23fc9a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      position: relative;
+      margin-bottom: 6rem;
+      border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212, 184, 117, 0.03) 0%, transparent 100%);
+      z-index: 0;
+    }
+
+    .logo-container {
+      width: 200px;
+      height: 200px;
+      margin: 0 auto 4rem;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow), var(--glow);
+      border: 3px solid rgba(255,255,255,0.7);
+      animation: fadeIn 2s ease forwards, float 6s ease-in-out infinite;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      z-index: 2;
+      backdrop-filter: blur(5px);
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    .logo-container:hover {
+      transform: scale(1.08) rotate(5deg);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.2), 0 0 30px rgba(212, 184, 117, 0.5);
+    }
+
+    .logo-container::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 3px solid var(--gold);
+      border-radius: 50%;
+      box-sizing: border-box;
+      animation: rotate 25s linear infinite;
+    }
+
+    .logo-container img {
+      width: 55%;
+      height: auto;
+      z-index: 1;
+      filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+      transition: var(--transition);
+    }
+
+    .logo-container:hover img {
+      transform: scale(1.1);
+    }
+
+    h1 {
+      font-family: 'Marcellus SC', serif;
+      font-size: 4.5rem;
+      color: var(--primary);
+      margin: 3rem 0 2rem;
+      letter-spacing: 5px;
+      font-weight: 400;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.05);
+      position: relative;
+      display: inline-block;
+      z-index: 2;
+    }
+
+    h1::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      bottom: -20px;
+      left: 0;
+      opacity: 0.6;
+      border-radius: 2px;
+    }
+
+    .subtitle {
+      font-style: italic;
+      color: var(--secondary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+      letter-spacing: 2px;
+      font-weight: 300;
+      z-index: 2;
+      text-shadow: 0 2px 4px rgba(255,255,255,0.8);
+    }
+
+    .search-container {
+      max-width: 750px;
+      margin: 0 auto 10rem;
+      padding: 0 3rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    #searchBar {
+      width: 100%;
+      padding: 1.5rem 3.5rem 1.5rem 5rem;
+      font-size: 1.4rem;
+      border: 1px solid rgba(58, 44, 30, 0.1);
+      border-radius: 50px;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(15px);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      font-family: 'Cormorant Garamond', serif;
+      color: var(--text);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='%236d5c4b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 2rem center;
+      background-size: 1.5rem;
+    }
+
+    #searchBar:focus {
+      outline: none;
+      border-color: var(--gold);
+      box-shadow: 0 30px 60px rgba(184, 159, 128, 0.3), var(--glow);
+      transform: translateY(-5px);
+      background-color: white;
+    }
+
+    #searchBar::placeholder {
+      color: var(--secondary);
+      opacity: 0.7;
+      letter-spacing: 1px;
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    .container {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 4rem;
+      margin-bottom: 12rem;
+    }
+
+    .product {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      border: 1px solid rgba(184, 159, 128, 0.1);
+      z-index: 1;
+      margin-bottom: 4rem;
+    }
+
+    .product::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212, 184, 117, 0.03) 0%, transparent 100%);
+      z-index: -1;
+    }
+
+    .product:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2), var(--glow);
+    }
+
+    .product-image {
+      height: 320px;
+      background: linear-gradient(to bottom right, var(--cream), white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(to top, rgba(255,255,255,0.97), transparent);
+    }
+
+    .product-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: var(--transition);
+      filter: drop-shadow(0 10px 25px rgba(0,0,0,0.2));
+      will-change: transform;
+    }
+
+    .product:hover .product-image img {
+      transform: scale(1.12) rotate(2deg);
+    }
+
+    .product-info {
+      padding: 2.5rem;
+      text-align: center;
+      background: white;
+      position: relative;
+    }
+
+    .product-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.6;
+    }
+
+    .product-title {
+      font-family: 'Marcellus', serif;
+      color: var(--primary);
+      font-size: 1.6rem;
+      margin: 0 0 1.5rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .product-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .price-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .price-box {
+      text-align: center;
+      position: relative;
+      padding: 0 1rem;
+    }
+
+    .price-box::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -1.5rem;
+      height: 80%;
+      width: 1px;
+      background: rgba(139, 115, 91, 0.15);
+      transform: translateY(-50%);
+    }
+
+    .price-box:last-child::after {
+      display: none;
+    }
+
+    .price-label {
+      font-size: 0.9rem;
+      color: var(--secondary);
+      margin-bottom: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .price-label::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .price-value {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 1.3rem;
+      letter-spacing: 0.5px;
+    }
+
+    .replica-price {
+      color: var(--primary);
+      font-weight: 700;
+      position: relative;
+    }
+
+    .replica-price::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+    }
+
+    .original-price {
+      color: var(--secondary);
+      font-weight: 500;
+    }
+
+    .buy-button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
+      transition: var(--transition);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(58, 44, 30, 0.25);
+      z-index: 1;
+    }
+
+    .buy-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: 0.7s;
+      z-index: -1;
+    }
+
+    .buy-button:hover {
+      background: linear-gradient(135deg, var(--dark), var(--primary));
+      box-shadow: 0 15px 35px rgba(58, 44, 30, 0.35), var(--glow);
+      transform: translateY(-5px);
+      letter-spacing: 2px;
+    }
+
+    .buy-button:hover::before {
+      left: 100%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Marcellus SC', serif;
+      color: var(--primary);
+      font-size: 3.2rem;
+      margin: 12rem 0 8rem;
+      position: relative;
+      letter-spacing: 3px;
+      font-weight: 400;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 180px;
+      height: 4px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.6;
+      border-radius: 2px;
+    }
+
+    .fragrance-list {
+      columns: 3;
+      column-gap: 7rem;
+      margin: 0 auto 14rem;
+      max-width: 1400px;
+      padding: 0 4rem;
+    }
+
+    .fragrance-list li {
+      margin-bottom: 2.5rem;
+      break-inside: avoid;
+      position: relative;
+      padding-left: 4rem;
+      list-style-type: none;
+      font-size: 1.3rem;
+      transition: var(--transition);
+    }
+
+    .fragrance-list li:hover {
+      color: var(--primary);
+      transform: translateX(10px);
+    }
+
+    .fragrance-list li::before {
+      content: '✦';
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      top: 2px;
+      transition: var(--transition);
+      text-shadow: 0 0 8px rgba(212, 184, 117, 0.4);
+    }
+
+    .fragrance-list li:hover::before {
+      transform: rotate(25deg) scale(1.3);
+    }
+
+    /* Easter Egg Styles */
+    .easter-egg {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 6rem;
+    }
+
+    .easter-egg-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 5rem;
+      border-radius: 25px;
+      box-shadow: var(--shadow), var(--glow);
+      border: 1px solid rgba(184, 159, 128, 0.25);
+      background-image: linear-gradient(to bottom right, var(--cream), white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .easter-egg-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 184, 117, 0.15) 0%, rgba(255,255,255,0) 70%);
+      z-index: 0;
+    }
+
+    .easter-egg-title {
+      color: var(--primary);
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    }
+
+    .easter-egg-image {
+      width: 100%;
+      border-radius: 20px;
+      margin: 3rem 0;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      border: 1px solid rgba(184, 159, 128, 0.35);
+      position: relative;
+      z-index: 1;
+      transition: var(--transition);
+    }
+
+    .easter-egg-image:hover {
+      transform: scale(1.03);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    }
+
+    .easter-egg-code {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      box-shadow: 0 10px 30px rgba(58, 44, 30, 0.35);
+      position: relative;
+      z-index: 1;
+      margin: 2.5rem 0;
+      font-family: 'Marcellus SC', serif;
+    }
+
+    .easter-egg-button {
+      margin-top: 3rem;
+      padding: 1.3rem 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      transition: var(--transition);
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 10px 30px rgba(58, 44, 30, 0.35);
+      letter-spacing: 2px;
+    }
+
+    .easter-egg-button:hover {
+      background: linear-gradient(135deg, var(--dark), var(--primary));
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(58, 44, 30, 0.45), var(--glow);
+      letter-spacing: 3px;
+    }
+
+    /* Ballerina Easter Egg */
+    .ballerina-egg {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 6rem;
+    }
+
+    .ballerina-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 5rem;
+      border-radius: 25px;
+      box-shadow: var(--shadow), var(--glow);
+      border: 1px solid rgba(184, 159, 128, 0.25);
+      background-image: linear-gradient(to bottom right, var(--cream), white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ballerina-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(212, 184, 117, 0.15) 0%, rgba(255,255,255,0) 70%);
+      z-index: 0;
+    }
+
+    .ballerina-title {
+      color: var(--primary);
+      font-size: 3rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    }
+
+    .ballerina-image {
+      width: 100%;
+      max-width: 500px;
+      border-radius: 20px;
+      margin: 3rem auto;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      border: 1px solid rgba(184, 159, 128, 0.35);
+      position: relative;
+      z-index: 1;
+      transition: var(--transition);
+    }
+
+    .ballerina-image:hover {
+      transform: scale(1.03);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+    }
+
+    .ballerina-code {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      font-weight: bold;
+      font-size: 2rem;
+      letter-spacing: 3px;
+      box-shadow: 0 10px 30px rgba(58, 44, 30, 0.35);
+      position: relative;
+      z-index: 1;
+      margin: 2.5rem 0;
+      font-family: 'Marcellus SC', serif;
+    }
+
+    /* Decorative Elements */
+    .decorative-corner {
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      opacity: 0.1;
+      z-index: 1;
+      transition: var(--transition);
+    }
+
+    .corner-tl {
+      top: 0;
+      left: 0;
+      border-top: 4px solid var(--gold);
+      border-left: 4px solid var(--gold);
+    }
+
+    .corner-tr {
+      top: 0;
+      right: 0;
+      border-top: 4px solid var(--gold);
+      border-right: 4px solid var(--gold);
+    }
+
+    .corner-bl {
+      bottom: 0;
+      left: 0;
+      border-bottom: 4px solid var(--gold);
+      border-left: 4px solid var(--gold);
+    }
+
+    .corner-br {
+      bottom: 0;
+      right: 0;
+      border-bottom: 4px solid var(--gold);
+      border-right: 4px solid var(--gold);
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--dark), #120d08);
+      color: var(--light);
+      padding: 10rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-logo {
+      width: 140px;
+      margin-bottom: 4rem;
+      opacity: 0.9;
+      filter: brightness(0) invert(1);
+      transition: var(--transition);
+    }
+
+    .footer-logo:hover {
+      transform: rotate(20deg) scale(1.15);
+      filter: brightness(0) invert(1) drop-shadow(0 0 15px rgba(212, 184, 117, 0.7));
+    }
+
+    .footer-title {
+      font-family: 'Marcellus SC', serif;
+      font-size: 2.8rem;
+      margin-bottom: 2.5rem;
+      color: var(--gold);
+      letter-spacing: 3px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.25);
+    }
+
+    .footer-text {
+      font-size: 1.3rem;
+      line-height: 2.2;
+      opacity: 0.9;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .footer-contact {
+      margin: 5rem 0;
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-contact a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 1.3rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+
+    .footer-contact a:hover {
+      color: white;
+      transform: translateY(-5px);
+      text-shadow: 0 0 15px rgba(212, 184, 117, 0.5);
+    }
+
+    .footer-contact a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: var(--gold);
+      bottom: 0;
+      left: 0;
+      transition: var(--transition);
+    }
+
+    .footer-contact a:hover::after {
+      width: 100%;
+    }
+
+    .footer-contact svg {
+      width: 28px;
+      height: 28px;
+      transition: var(--transition);
+    }
+
+    .footer-contact a:hover svg {
+      transform: rotate(20deg) scale(1.2);
+      filter: drop-shadow(0 0 10px rgba(212, 184, 117, 0.7));
+    }
+
+    .copyright {
+      font-size: 1.1rem;
+      opacity: 0.6;
+      margin-top: 8rem;
+      letter-spacing: 1.5px;
+    }
+
+    /* Floating Particles */
+    .particle {
+      position: absolute;
+      background: rgba(212, 184, 117, 0.4);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(1px);
+      animation: floatParticle 15s ease-in-out infinite;
+    }
+
+    @keyframes floatParticle {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-100px) rotate(180deg); }
+    }
+
+    /* Parallax Scrolling Effect */
+    .parallax {
+      position: relative;
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    /* Loading Animation */
+    .loading-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--light);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 1s ease-out;
+    }
+
+    .loading-logo {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    .loading-text {
+      font-family: 'Marcellus SC', serif;
+      color: var(--primary);
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      margin-top: 2rem;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* Scroll to Top Button */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--gold);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 99;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .scroll-top.visible {
+      opacity: 0.8;
+      visibility: visible;
+    }
+
+    .scroll-top:hover {
+      opacity: 1;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1600px) {
+      :root {
+        --section-spacing: 10rem;
+        --element-spacing: 2.5rem;
+      }
       
-      // Create 15 bottles with random properties
-      for (let i = 0; i < 15; i++) {
-        const bottle = document.createElement('img');
-        const randomType = bottleTypes[Math.floor(Math.random() * bottleTypes.length)];
+      .product-grid {
+        gap: 3rem;
+      }
+      
+      .fragrance-list {
+        columns: 2;
+        column-gap: 6rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      h1 {
+        font-size: 3.8rem;
+      }
+      
+      .subtitle {
+        font-size: 1.6rem;
+      }
+      
+      .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      }
+      
+      .product-image {
+        height: 280px;
+      }
+      
+      .price-container {
+        gap: 2.5rem;
+      }
+      
+      .section-title {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      :root {
+        --section-spacing: 8rem;
+        --element-spacing: 2rem;
+      }
+      
+      header {
+        padding: 8rem 2rem 6rem;
+      }
+      
+      h1 {
+        font-size: 3.2rem;
+      }
+      
+      .logo-container {
+        width: 160px;
+        height: 160px;
+      }
+      
+      .search-container {
+        margin-bottom: 8rem;
+      }
+      
+      #searchBar {
+        padding: 1.3rem 3rem 1.3rem 4.5rem;
+        background-position: 1.8rem center;
+      }
+      
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .fragrance-list {
+        columns: 1;
+        padding: 0 3rem;
+      }
+      
+      .section-title {
+        font-size: 2.5rem;
+      }
+      
+      .footer-contact {
+        flex-direction: column;
+        gap: 2.5rem;
+      }
+      
+      /* Floating bottles mobile adjustments */
+      .floating-bottle {
+        width: 50px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      .subtitle {
+        font-size: 1.4rem;
+      }
+      
+      .product-info {
+        padding: 2rem;
+      }
+      
+      .price-container {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      
+      .price-box::after {
+        display: none;
+      }
+      
+      .footer-logo {
+        width: 120px;
+      }
+      
+      .footer-title {
+        font-size: 2.2rem;
+      }
+      
+      .floating-bottle {
+        width: 40px;
+      }
+      
+      .easter-egg-card,
+      .ballerina-card {
+        padding: 3rem;
+      }
+      
+      .easter-egg-title,
+      .ballerina-title {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      :root {
+        --section-spacing: 6rem;
+      }
+      
+      h1 {
+        font-size: 2.4rem;
+      }
+      
+      .logo-container {
+        width: 140px;
+        height: 140px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      header {
+        padding: 6rem 1rem 4rem;
+      }
+      
+      .search-container {
+        padding: 0 1.5rem;
+      }
+      
+      .easter-egg-card,
+      .ballerina-card {
+        padding: 2rem;
+      }
+    }
+  </style>
+  <link rel="icon" href="images/mson.png" type="image/png">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <img src="images/mson.png" alt="Maison du Cologne Logo" class="loading-logo">
+    <div class="loading-text">Loading Fragrances...</div>
+  </div>
+
+  <!-- Floating Fragrance Bottles - Fixed animation -->
+  <img src="images/lv-bottle1.png" class="floating-bottle bottle1" alt="Louis Vuitton fragrance bottle">
+  <img src="images/xerjoff-bottle1.png" class="floating-bottle bottle2" alt="Xerjoff fragrance bottle">
+  <img src="images/marly-bottle1.png" class="floating-bottle bottle3" alt="Parfums de Marly fragrance bottle">
+  <img src="images/lv-bottle2.png" class="floating-bottle bottle4" alt="Louis Vuitton fragrance bottle">
+  <img src="images/xerjoff-bottle2.png" class="floating-bottle bottle5" alt="Xerjoff fragrance bottle">
+  <img src="images/marly-bottle2.png" class="floating-bottle bottle6" alt="Parfums de Marly fragrance bottle">
+
+  <!-- Scroll to Top Button -->
+  <div class="scroll-top" id="scrollTop">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M18 15l-6-6-6 6"/>
+    </svg>
+  </div>
+
+  <header class="parallax" data-parallax="0.2">
+    <div class="decorative-corner corner-tl"></div>
+    <div class="decorative-corner corner-tr"></div>
+    <div class="logo-container">
+      <img src="images/mson.png" alt="Maison du Cologne Logo">
+    </div>
+    <h1>Maison du Cologne</h1>
+    <p class="subtitle">The Essence of Luxury</p>
+    <div class="decorative-corner corner-bl"></div>
+    <div class="decorative-corner corner-br"></div>
+  </header>
+
+  <div class="search-container">
+    <input type="text" id="searchBar" placeholder="Discover your signature scent...">
+  </div>
+
+  <div class="container">
+    <div class="product-grid" id="productGrid"></div>
+
+    <h2 class="section-title">Our Extensive Collection</h2>
+    <ul class="fragrance-list">
+      <li>Armani Code – Warm, spicy, seductive</li>
+      <li>Tom Ford Noir Extreme – Amber, cardamom, vanilla</li>
+      <li>YSL La Nuit de L'Homme – Woody oriental freshness</li>
+      <li>Spicebomb by Viktor&Rolf – Explosive spice</li>
+      <li>Coach for Men – Crisp pear, suede, ambergris</li>
+      <li>Burberry Hero – Woodsy, spicy, fresh</li>
+      <li>Gucci Guilty – Aromatic lavender citrus</li>
+      <li>Mont Blanc Explorer – Leather and bergamot</li>
+      <li>CK One – Citrus musk with green tea</li>
+      <li>Azzaro Wanted – Lemon, ginger, cardamom</li>
+      <li>Invictus by Paco Rabanne – Marine freshness</li>
+      <li>One Million – Leather, cinnamon, rose</li>
+      <li>Legend by Mont Blanc – Lavender pineapple</li>
+      <li>Bvlgari Man in Black – Rum, spices, leather</li>
+      <li>Givenchy Gentleman – Pear, iris, patchouli</li>
+      <li>Lacoste Blanc – Grapefruit and cedarwood</li>
+      <li>Dolce & Gabbana K – Juniper and vetiver</li>
+      <li>Diesel Only the Brave – Amber citrus</li>
+      <li>Rochas Moustache – Vanilla pink pepper</li>
+      <li>YSL Y – Apple sage woods</li>
+      <li>Hermès H24 – Metallic sage accord</li>
+      <li>Terre d'Hermès – Mineral vetiver</li>
+      <li>Dsquared2 Wood – Violet cedar musk</li>
+      <li>Issey Miyake L'Eau d'Issey – Aquatic floral</li>
+      <li>Mercedes-Benz Man – Pear musk</li>
+      <li>1 Million Elixir – Rum cinnamon</li>
+      <li>Tom Ford Tobacco Vanille – Sweet tobacco</li>
+      <li>LV California Dream – Green apple musk</li>
+      <li>LV Pacific Chill – Lotus freshness</li>
+      <li>Xerjoff Erba Pura – Sweet lemon musk</li>
+    </ul>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <img src="images/mson.png" alt="Maison du Cologne Logo" class="footer-logo">
+      <h3 class="footer-title">Maison du Cologne</h3>
+      <p class="footer-text">An exquisite collection of the world's finest fragrances and premium replicas for those who understand the language of luxury.</p>
+      
+      <div class="footer-contact">
+        <a href="mailto:contact@maisoncologne.com">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          contact@maisoncologne.com
+        </a>
+        <a href="tel:+573103435472">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          +57 310 3435472
+        </a>
+        <a href="https://wa.me/573103435472" target="_blank">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+          </svg>
+          WhatsApp Enquiries
+        </a>
+      </div>
+      
+      <p class="copyright">© 2023 Maison du Cologne. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Wait for everything to load
+    window.addEventListener('load', function() {
+      // Hide loading screen with fade out
+      document.querySelector('.loading-screen').style.opacity = '0';
+      setTimeout(() => {
+        document.querySelector('.loading-screen').style.display = 'none';
+      }, 1000);
+      
+      // Initialize everything
+      init();
+    });
+
+    function init() {
+      const fragrances = [
+        ["Jean Paul Gaultier Elixir", "jpg-elixir.png", 230000, 530000 ],
+        ["Ultra Male", "ultra-male.png", 220000, 480000],
+        ["Le Beau Le Parfum", "le-beau.png", 230000, 600000],
+        ["Valentino Born In Roma", "valentino.png", 220000, 700000],
+        ["9PM by Afnan", "9pm.png", 200000, 400000],
+        ["Odyssey Mandarin Sky", "odyssey.png", 200000, 250000],
+        ["Bleu de Chanel", "bleu.png", 220000, 690000],
+        ["Creed Aventus", "aventus.png", 250000, 1700000],
+        ["Creed Silver Mountain Water", "silver-mountain.png", 250000, 1700000],
+        ["Millésime Impérial", "imperial.png", 250000, 1300000],
+        ["Stronger With You", "stronger.png", 230000, 580000],
+        ["Acqua Di Gio", "gio.png", 220000, 500000],
+        ["LV Ombre Nomade", "ombre-nomade.png", 250000, 1700000],
+        ["Versace Eros Flame", "eros-flame.png", 220000, 430000],
+        ["Versace Eros", "eros.png", 220000, 430000],
+        ["Versace Eros Energy", "eros-energy.png", 250000, 450000],
+        ["Dior Sauvage", "sauvage.png", 220000, 690000],
+        ["JPG Le Male", "le-male.png", 210000, 519000],
+        ["JPG Le Male Le Parfum", "le-male-parfum.png", 250000, 480000],
+        ["Club de Nuit Intense", "cdn-intense.png", 200000, 300000],
+        ["Allure Homme Sport", "allure-homme-sport.png", 250000, 490000],
+        ["Scandal by JPG", "sacndal.png", 220000, 470000],
+        ["Versace Pour Homme", "versace-pour-homme.png", 220000, 530000]
+      ];
+
+      const productGrid = document.getElementById('productGrid');
+      const searchBar = document.getElementById('searchBar');
+      const scrollTopBtn = document.getElementById('scrollTop');
+
+      function formatPrice(price) {
+        return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(price).replace(/^(\D+)/, '$1 ');
+      }
+
+      function renderProducts(products) {
+        productGrid.innerHTML = products.map(([name, image, replicaPrice, originalPrice]) => `
+          <div class="product" data-name="${name}">
+            <div class="product-image">
+              <img src="images/${image}" alt="${name}" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-title">${name}</h3>
+              <div class="price-container">
+                <div class="price-box">
+                  <div class="price-label">Our Price</div>
+                  <div class="price-value replica-price">${formatPrice(replicaPrice)}</div>
+                </div>
+                <div class="price-box">
+                  <div class="price-label">Original</div>
+                  <div class="price-value original-price">${formatPrice(originalPrice)}</div>
+                </div>
+              </div>
+              <a href="https://wa.me/573103435472?text=I'm%20interested%20in%20${encodeURIComponent(name)}%20(Replica%20or%20Original)" 
+                 class="buy-button" 
+                 target="_blank">
+                Enquire Now
+              </a>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function showEasterEgg() {
+        productGrid.innerHTML = `
+          <div class="easter-egg">
+            <div class="easter-egg-card">
+              <h3 class="easter-egg-title">🎉 SECRET DISCOVERED! 🎉</h3>
+              <img src="https://gta5modaz.com/wp-content/uploads/2025/04/gta5modaz_La_Vaca_Saturno_Saturnita_Itanlian_Brainrot_thumb.jpg" alt="Celebrity with discount" class="easter-egg-image">
+              <p style="font-size: 1.3rem; margin: 2.5rem 0; position: relative; z-index: 1;">Congratulations! You found our secret discount code!</p>
+              <div class="easter-egg-code">
+                Use code: <span style="font-family: monospace;">TUNG20BRR</span> for 20% off!
+              </div>
+              <p style="margin-top: 2.5rem; font-style: italic; position: relative; z-index: 1;">(Valid for 24 hours after discovery)</p>
+              <button class="easter-egg-button" onclick="location.reload()">
+                Back to Shopping
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      function showBallerinaEgg() {
+        productGrid.innerHTML = `
+          <div class="ballerina-egg">
+            <div class="ballerina-card">
+              <h3 class="ballerina-title">✨ BALLERINA SPECIAL ✨</h3>
+              <img src="images/tung.png" alt="Tung X Ballerina" class="ballerina-image">
+              <p style="font-size: 1.3rem; margin: 2.5rem 0; position: relative; z-index: 1;">You've unlocked our exclusive Ballerina discount!</p>
+              <div class="ballerina-code">
+                Use code: <span style="font-family: monospace;">BALLERINA5</span> for 5% off!
+              </div>
+              <p style="margin-top: 2.5rem; font-style: italic; position: relative; z-index: 1;">(Limited time offer for Ballerina fans)</p>
+              <button class="easter-egg-button" onclick="location.reload()">
+                Continue Shopping
+              </button>
+            </div>
+          </div>
+        `;
+      }
+
+      // Create floating particles
+      function createParticles() {
+        const particles = 40;
+        for (let i = 0; i < particles; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          
+          // Random properties
+          const size = Math.random() * 8 + 2;
+          const posX = Math.random() * window.innerWidth;
+          const posY = Math.random() * window.innerHeight;
+          const delay = Math.random() * 8;
+          const duration = Math.random() * 15 + 15;
+          const opacity = Math.random() * 0.4 + 0.1;
+          
+          // Apply properties
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${posX}px`;
+          particle.style.top = `${posY}px`;
+          particle.style.animationDelay = `${delay}s`;
+          particle.style.animationDuration = `${duration}s`;
+          particle.style.opacity = opacity;
+          
+          document.body.appendChild(particle);
+        }
+      }
+
+      // Scroll to top functionality
+      function setupScrollTop() {
+        window.addEventListener('scroll', () => {
+          if (window.pageYOffset > 300) {
+            scrollTopBtn.classList.add('visible');
+          } else {
+            scrollTopBtn.classList.remove('visible');
+          }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+          });
+        });
+      }
+
+      // Parallax effect
+      function setupParallax() {
+        const parallaxElements = document.querySelectorAll('.parallax');
         
-        bottle.src = `images/${randomType}`;
-        bottle.className = 'floating-bottle';
-        bottle.alt = 'Luxury fragrance bottle';
+        window.addEventListener('scroll', () => {
+          const scrollPosition = window.pageYOffset;
+          
+          parallaxElements.forEach(element => {
+            const speed = parseFloat(element.getAttribute('data-parallax'));
+            const yPos = -(scrollPosition * speed);
+            element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+          });
+        });
+      }
+
+      // Initial render
+      renderProducts(fragrances);
+      createParticles();
+      setupParallax();
+      setupScrollTop();
+
+      // Search functionality
+      searchBar.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase().trim();
         
-        // Random properties
-        const leftPos = Math.random() * 90 + 5; // 5-95%
-        const delay = Math.random() * 15;
-        const duration = Math.random() * 10 + 15; // 15-25s
-        const size = Math.random() * 30 + 40; // 40-70px
-        
-        bottle.style.left = `${leftPos}%`;
-        bottle.style.animationDelay = `${delay}s`;
-        bottle.style.animationDuration = `${duration}s`;
-        bottle.style.width = `${size}px`;
-        
-        // Random start position (some start off-screen)
-        if (Math.random() > 0.5) {
-          bottle.style.transform = `translateY(${Math.random() * 100 + 100}vh)`;
+        // Easter egg checks
+        if (term === "skibidi tung vaca patapim") {
+          showEasterEgg();
+          return;
         }
         
-        document.body.appendChild(bottle);
-      }
-    }
-
-    // Parallax effect
-    function setupParallax() {
-      const parallaxElements = document.querySelectorAll('.parallax');
-      
-      window.addEventListener('scroll', () => {
-        const scrollPosition = window.pageYOffset;
+        if (term === "tung x ballerina") {
+          showBallerinaEgg();
+          return;
+        }
         
-        parallaxElements.forEach(element => {
-          const speed = parseFloat(element.getAttribute('data-parallax'));
-          const yPos = -(scrollPosition * speed);
-          element.style.transform = `translate3d(0, ${yPos}px, 0)`;
+        const filtered = term === '' 
+          ? fragrances 
+          : fragrances.filter(([name]) => name.toLowerCase().includes(term));
+        renderProducts(filtered);
+      });
+
+      // Add smooth scrolling to all links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
         });
       });
     }
-
-    // Initial render
-    renderProducts(fragrances);
-    createParticles();
-    createFloatingBottles();
-    setupParallax();
-
-    // Search functionality
-    searchBar.addEventListener('input', (e) => {
-      const term = e.target.value.toLowerCase().trim();
-      
-      // Easter egg checks
-      if (term === "skibidi tung vaca patapim") {
-        showEasterEgg();
-        return;
-      }
-      
-      if (term === "tung x ballerina") {
-        showBallerinaEgg();
-        return;
-      }
-      
-      const filtered = term === '' 
-        ? fragrances 
-        : fragrances.filter(([name]) => name.toLowerCase().includes(term));
-      renderProducts(filtered);
-    });
-
-    // Add floating animation
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes float {
-        0%, 100% {
-          transform: translateY(0) rotate(0deg);
-        }
-        50% {
-          transform: translateY(-80px) rotate(180deg);
-        }
-      }
-    `;
-    document.head.appendChild(style);
   </script>
 </body>
 </html>
