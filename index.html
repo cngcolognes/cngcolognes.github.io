@@ -230,7 +230,7 @@
     .fathers-day-banner {
       background: linear-gradient(135deg, var(--primary), var(--dark));
       color: var(--gold);
-      padding: 2rem;
+      padding: 3rem 2rem;
       border-radius: var(--border-radius);
       margin: 0 auto 5rem;
       max-width: 1200px;
@@ -240,6 +240,8 @@
       box-shadow: var(--shadow), var(--glow);
       border: 1px solid rgba(200, 169, 126, 0.3);
       z-index: 2;
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
     }
 
     .fathers-day-banner::before {
@@ -256,11 +258,25 @@
 
     .fathers-day-title {
       font-family: 'Marcellus SC', serif;
-      font-size: 2.8rem;
+      font-size: 3.2rem;
       margin-bottom: 1.5rem;
       letter-spacing: 3px;
       color: var(--gold);
       text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      position: relative;
+      display: inline-block;
+    }
+
+    .fathers-day-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 3px;
+      background: var(--gold);
+      opacity: 0.7;
     }
 
     .fathers-day-subtitle {
@@ -269,6 +285,7 @@
       margin: 0 auto;
       line-height: 1.6;
       color: var(--cream);
+      margin-bottom: 1.5rem;
     }
 
     .fathers-day-highlight {
@@ -278,6 +295,40 @@
       border-radius: 5px;
       font-weight: 600;
       color: var(--gold);
+      border: 1px solid rgba(212, 184, 117, 0.3);
+    }
+
+    .fathers-day-countdown {
+      font-size: 1.8rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-top: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem 1rem;
+      background: rgba(0,0,0,0.2);
+      border-radius: 5px;
+      min-width: 70px;
+    }
+
+    .countdown-value {
+      font-size: 2.2rem;
+      font-weight: 700;
+    }
+
+    .countdown-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
     }
 
     .search-container {
@@ -583,7 +634,7 @@
 
     .fathers-day-collection {
       background: linear-gradient(to bottom right, var(--cream), white);
-      padding: 6rem 0;
+      padding: 8rem 0;
       margin: 8rem 0;
       position: relative;
       overflow: hidden;
@@ -624,6 +675,18 @@
       transform: translateX(-50%);
       opacity: 0.6;
       border-radius: 2px;
+    }
+
+    .fathers-day-collection-subtitle {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+      text-align: center;
+      color: var(--secondary);
+      line-height: 1.8;
+      font-style: italic;
+      position: relative;
+      z-index: 1;
     }
 
     .fathers-day-grid {
@@ -780,6 +843,22 @@
 
     .fathers-day-buy-button:hover::before {
       left: 100%;
+    }
+
+    .fathers-day-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--gold);
+      color: var(--primary);
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      z-index: 2;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transform: rotate(15deg);
     }
 
     .fragrance-list {
@@ -1391,6 +1470,11 @@
       .fathers-day-collection-title {
         font-size: 2.2rem;
       }
+      
+      .fathers-day-countdown {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
     }
 
     @media (max-width: 400px) {
@@ -1473,9 +1557,27 @@
   <div class="fathers-day-banner">
     <h2 class="fathers-day-title">FATHER'S DAY 2025 COLLECTION</h2>
     <p class="fathers-day-subtitle">
-      Celebrate the extraordinary you father with our <span class="fathers-day-highlight">exclusive Father's Day selection</span> of great fragrances. 
-      Each scent tells a story of the finest of cologne.
+      Celebrate the extraordinary father in your life with our <span class="fathers-day-highlight">exclusive Father's Day selection</span> of premium fragrances. 
+      Each scent is crafted for the distinguished gentleman who appreciates the finer things in life.
     </p>
+    <div class="fathers-day-countdown">
+      <div class="countdown-item">
+        <div class="countdown-value" id="days">00</div>
+        <div class="countdown-label">Days</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="hours">00</div>
+        <div class="countdown-label">Hours</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="minutes">00</div>
+        <div class="countdown-label">Minutes</div>
+      </div>
+      <div class="countdown-item">
+        <div class="countdown-value" id="seconds">00</div>
+        <div class="countdown-label">Seconds</div>
+      </div>
+    </div>
   </div>
 
   <div class="search-container">
@@ -1485,7 +1587,11 @@
   <div class="container">
     <!-- Father's Day Special Collection -->
     <div class="fathers-day-collection">
-      <h2 class="fathers-day-collection-title">Created for Distinguished Gentlemen</h2>
+      <h2 class="fathers-day-collection-title">For the Distinguished Gentleman</h2>
+      <p class="fathers-day-collection-subtitle">
+        Our Father's Day collection celebrates the modern gentleman - refined, confident, and effortlessly sophisticated. 
+        Each fragrance in this selection embodies timeless elegance and contemporary masculinity.
+      </p>
       <div class="fathers-day-grid" id="fathersDayGrid"></div>
     </div>
 
@@ -1602,7 +1708,7 @@
         ["Creed Aventus", "aventus.png", 250000, 1700000],
         ["Dior Sauvage", "sauvage.png", 220000, 690000],
         ["Bleu de Chanel", "bleu.png", 220000, 690000],
-        ["Tom Ford Tobacco Vanille", "tom-ford-tobacco.png", 280000, 1800000],
+        ["Tom Ford Tobacco Vanille", "tom-ford-tobacco.png", 240000, 1800000],
         ["LV Ombre Nomade", "ombre-nomade.png", 250000, 1700000],
         ["Creed Green Irish Tweed", "green-irish-tweed.png", 250000, 1500000]
       ];
@@ -1626,7 +1732,7 @@
               <h3 class="product-title">${name}</h3>
               <div class="price-container">
                 <div class="price-box">
-                  <div class="price-label">Our Price</div>
+                  <div class="price-label">Replica</div>
                   <div class="price-value replica-price">${formatPrice(replicaPrice)}</div>
                 </div>
                 <div class="price-box">
@@ -1654,7 +1760,7 @@
               <h3 class="fathers-day-product-title">${name}</h3>
               <div class="fathers-day-price-container">
                 <div class="price-box">
-                  <div class="price-label">Our Price</div>
+                  <div class="price-label">Replica</div>
                   <div class="price-value replica-price">${formatPrice(replicaPrice)}</div>
                 </div>
                 <div class="price-box">
@@ -1668,6 +1774,7 @@
                 Enquire Now
               </a>
             </div>
+            <div class="fathers-day-badge">Father's Day Pick</div>
           </div>
         `).join('');
       }
@@ -1771,12 +1878,36 @@
         });
       }
 
+      // Father's Day countdown
+      function setupCountdown() {
+        const fathersDay2025 = new Date('June 15, 2025 00:00:00').getTime();
+        
+        function updateCountdown() {
+          const now = new Date().getTime();
+          const distance = fathersDay2025 - now;
+          
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          document.getElementById('days').textContent = days.toString().padStart(2, '0');
+          document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+          document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+          document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+      }
+
       // Initial render
       renderProducts(fragrances);
       renderFathersDayProducts(fathersDayFragrances);
       createParticles();
       setupParallax();
       setupScrollTop();
+      setupCountdown();
 
       // Search functionality
       searchBar.addEventListener('input', (e) => {
