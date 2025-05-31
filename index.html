@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maison du Cologne | Luxury Fragrances</title>
+  <title>Maison du Cologne | Father's Day 2025 - Luxury Fragrances</title>
   <style>
     :root {
       --primary: #1e1811;
@@ -225,6 +225,59 @@
       font-weight: 300;
       z-index: 2;
       text-shadow: 0 2px 4px rgba(255,255,255,0.8);
+    }
+
+    .fathers-day-banner {
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: var(--gold);
+      padding: 2rem;
+      border-radius: var(--border-radius);
+      margin: 0 auto 5rem;
+      max-width: 1200px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow), var(--glow);
+      border: 1px solid rgba(200, 169, 126, 0.3);
+      z-index: 2;
+    }
+
+    .fathers-day-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      opacity: 0.08;
+      z-index: -1;
+    }
+
+    .fathers-day-title {
+      font-family: 'Marcellus SC', serif;
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .fathers-day-subtitle {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: var(--cream);
+    }
+
+    .fathers-day-highlight {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: rgba(212, 184, 117, 0.15);
+      border-radius: 5px;
+      font-weight: 600;
+      color: var(--gold);
     }
 
     .search-container {
@@ -526,6 +579,207 @@
       transform: translateX(-50%);
       opacity: 0.6;
       border-radius: 2px;
+    }
+
+    .fathers-day-collection {
+      background: linear-gradient(to bottom right, var(--cream), white);
+      padding: 6rem 0;
+      margin: 8rem 0;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(200, 169, 126, 0.2);
+      border-bottom: 1px solid rgba(200, 169, 126, 0.2);
+    }
+
+    .fathers-day-collection::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      opacity: 0.05;
+      z-index: 0;
+    }
+
+    .fathers-day-collection-title {
+      font-family: 'Marcellus SC', serif;
+      color: var(--primary);
+      font-size: 3.5rem;
+      text-align: center;
+      margin-bottom: 6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fathers-day-collection-title::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 4px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0.6;
+      border-radius: 2px;
+    }
+
+    .fathers-day-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .fathers-day-product {
+      background: white;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      border: 1px solid rgba(184, 159, 128, 0.1);
+      z-index: 1;
+    }
+
+    .fathers-day-product::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212, 184, 117, 0.03) 0%, transparent 100%);
+      z-index: -1;
+    }
+
+    .fathers-day-product:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 40px 80px rgba(0,0,0,0.2), var(--glow);
+    }
+
+    .fathers-day-product-image {
+      height: 320px;
+      background: linear-gradient(to bottom right, var(--cream), white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .fathers-day-product-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(to top, rgba(255,255,255,0.97), transparent);
+    }
+
+    .fathers-day-product-image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      transition: var(--transition);
+      filter: drop-shadow(0 10px 25px rgba(0,0,0,0.2));
+      will-change: transform;
+    }
+
+    .fathers-day-product:hover .fathers-day-product-image img {
+      transform: scale(1.12) rotate(2deg);
+    }
+
+    .fathers-day-product-info {
+      padding: 2.5rem;
+      text-align: center;
+      background: white;
+      position: relative;
+    }
+
+    .fathers-day-product-info::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+      opacity: 0.6;
+    }
+
+    .fathers-day-product-title {
+      font-family: 'Marcellus', serif;
+      color: var(--primary);
+      font-size: 1.6rem;
+      margin: 0 0 1.5rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .fathers-day-product-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 2px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    .fathers-day-price-container {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .fathers-day-buy-button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: linear-gradient(135deg, var(--primary), var(--dark));
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: 1.5px;
+      transition: var(--transition);
+      border: none;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(58, 44, 30, 0.25);
+      z-index: 1;
+    }
+
+    .fathers-day-buy-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+      transition: 0.7s;
+      z-index: -1;
+    }
+
+    .fathers-day-buy-button:hover {
+      background: linear-gradient(135deg, var(--dark), var(--primary));
+      box-shadow: 0 15px 35px rgba(58, 44, 30, 0.35), var(--glow);
+      transform: translateY(-5px);
+      letter-spacing: 2px;
+    }
+
+    .fathers-day-buy-button:hover::before {
+      left: 100%;
     }
 
     .fragrance-list {
@@ -1011,6 +1265,14 @@
       .section-title {
         font-size: 2.8rem;
       }
+      
+      .fathers-day-title {
+        font-size: 2.4rem;
+      }
+      
+      .fathers-day-subtitle {
+        font-size: 1.3rem;
+      }
     }
 
     @media (max-width: 900px) {
@@ -1064,6 +1326,18 @@
       .floating-bottle {
         width: 50px;
       }
+      
+      .fathers-day-title {
+        font-size: 2rem;
+      }
+      
+      .fathers-day-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .fathers-day-collection-title {
+        font-size: 2.8rem;
+      }
     }
 
     @media (max-width: 600px) {
@@ -1109,6 +1383,14 @@
       .ballerina-title {
         font-size: 2.2rem;
       }
+      
+      .fathers-day-title {
+        font-size: 1.8rem;
+      }
+      
+      .fathers-day-collection-title {
+        font-size: 2.2rem;
+      }
     }
 
     @media (max-width: 400px) {
@@ -1140,6 +1422,14 @@
       .easter-egg-card,
       .ballerina-card {
         padding: 2rem;
+      }
+      
+      .fathers-day-title {
+        font-size: 1.6rem;
+      }
+      
+      .fathers-day-collection-title {
+        font-size: 1.8rem;
       }
     }
   </style>
@@ -1179,11 +1469,26 @@
     <div class="decorative-corner corner-br"></div>
   </header>
 
+  <!-- Father's Day Banner -->
+  <div class="fathers-day-banner">
+    <h2 class="fathers-day-title">FATHER'S DAY 2025 COLLECTION</h2>
+    <p class="fathers-day-subtitle">
+      Celebrate the extraordinary man in your life with our <span class="fathers-day-highlight">exclusive Father's Day selection</span> of timeless fragrances. 
+      Each scent tells a story of sophistication and legacy—perfect for the man who deserves nothing but the finest.
+    </p>
+  </div>
+
   <div class="search-container">
     <input type="text" id="searchBar" placeholder="Discover your signature scent...">
   </div>
 
   <div class="container">
+    <!-- Father's Day Special Collection -->
+    <div class="fathers-day-collection">
+      <h2 class="fathers-day-collection-title">Curated for Distinguished Gentlemen</h2>
+      <div class="fathers-day-grid" id="fathersDayGrid"></div>
+    </div>
+
     <div class="product-grid" id="productGrid"></div>
 
     <h2 class="section-title">Our Extensive Collection</h2>
@@ -1249,7 +1554,7 @@
         </a>
       </div>
       
-      <p class="copyright">© 2023 Maison du Cologne. All rights reserved.</p>
+      <p class="copyright">© 2025 Maison du Cologne. All rights reserved.</p>
     </div>
   </footer>
 
@@ -1293,7 +1598,17 @@
         ["Versace Pour Homme", "versace-pour-homme.png", 220000, 530000]
       ];
 
+      const fathersDayFragrances = [
+        ["Creed Aventus", "aventus.png", 250000, 1700000],
+        ["Dior Sauvage", "sauvage.png", 220000, 690000],
+        ["Bleu de Chanel", "bleu.png", 220000, 690000],
+        ["Tom Ford Tobacco Vanille", "tom-ford-tobacco.png", 280000, 1800000],
+        ["LV Ombre Nomade", "ombre-nomade.png", 250000, 1700000],
+        ["Creed Green Irish Tweed", "green-irish-tweed.png", 250000, 1500000]
+      ];
+
       const productGrid = document.getElementById('productGrid');
+      const fathersDayGrid = document.getElementById('fathersDayGrid');
       const searchBar = document.getElementById('searchBar');
       const scrollTopBtn = document.getElementById('scrollTop');
 
@@ -1321,6 +1636,34 @@
               </div>
               <a href="https://wa.me/573103435472?text=I'm%20interested%20in%20${encodeURIComponent(name)}%20(Replica%20or%20Original)" 
                  class="buy-button" 
+                 target="_blank">
+                Enquire Now
+              </a>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      function renderFathersDayProducts(products) {
+        fathersDayGrid.innerHTML = products.map(([name, image, replicaPrice, originalPrice]) => `
+          <div class="fathers-day-product" data-name="${name}">
+            <div class="fathers-day-product-image">
+              <img src="images/${image}" alt="${name}" loading="lazy">
+            </div>
+            <div class="fathers-day-product-info">
+              <h3 class="fathers-day-product-title">${name}</h3>
+              <div class="fathers-day-price-container">
+                <div class="price-box">
+                  <div class="price-label">Our Price</div>
+                  <div class="price-value replica-price">${formatPrice(replicaPrice)}</div>
+                </div>
+                <div class="price-box">
+                  <div class="price-label">Original</div>
+                  <div class="price-value original-price">${formatPrice(originalPrice)}</div>
+                </div>
+              </div>
+              <a href="https://wa.me/573103435472?text=I'm%20interested%20in%20${encodeURIComponent('Father\'s Day 2025 - ' + name)}%20(Replica%20or%20Original)" 
+                 class="fathers-day-buy-button" 
                  target="_blank">
                 Enquire Now
               </a>
@@ -1430,6 +1773,7 @@
 
       // Initial render
       renderProducts(fragrances);
+      renderFathersDayProducts(fathersDayFragrances);
       createParticles();
       setupParallax();
       setupScrollTop();
